@@ -1,0 +1,2 @@
+REVOKE EXECUTE ON FUNCTION public.has_active_subscription(uuid, text) FROM PUBLIC, anon, authenticated;
+REVOKE EXECUTE ON FUNCTION public.create_profile_after_signup() FROM PUBLIC, anon, authenticated;
