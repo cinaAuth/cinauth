@@ -29,6 +29,20 @@ type Release = {
 const RELEASES: Release[] = [
   {
     date: "September 5, 2026",
+    label: "2026-09-05-c",
+    category: "Features",
+    title: "Languages, Payments & Email Alerts",
+    entries: [
+      { text: "Full site translated into 24 languages, including landing, panel, console and specs.", bold: "24 languages" },
+      { text: "New payment methods: Apple/Google Pay, PayPal, Klarna, SEPA, Bizum, Revolut and crypto, configurable per store.", bold: "New payment methods" },
+      { text: "Invoice-style checkout with order summary and payment steps, plus a customer account area.", bold: "Invoice-style checkout" },
+      { text: "Platform subscription plans (Core, Signal, Empire) with Stripe Embedded Checkout.", bold: "subscription plans" },
+      { text: "\"New login detected\" email alert on every sign-in, sent from notify.cinauth.com.", bold: "New login detected" },
+      { text: "Codebase synced to GitHub with a refreshed cyber-style README.", bold: "synced to GitHub" },
+    ],
+  },
+  {
+    date: "September 5, 2026",
     label: "2026-09-05",
     category: "Features",
     title: "Customizable Panel & Direct Onboarding",
