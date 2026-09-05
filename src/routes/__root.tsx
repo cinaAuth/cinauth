@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { initTheme } from "@/lib/theme";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -15,6 +16,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { CartProvider } from "@/lib/cart";
 import { Toaster } from "@/components/ui/sonner";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { SeasonalEffects } from "@/components/SeasonalEffects";
 
 function NotFoundComponent() {
   return (
@@ -136,6 +138,10 @@ function RootComponent() {
   const router = useRouter();
 
   useEffect(() => {
+    initTheme();
+  }, []);
+
+  useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
       if (event !== "SIGNED_IN" && event !== "SIGNED_OUT" && event !== "USER_UPDATED") return;
       router.invalidate();
@@ -151,6 +157,7 @@ function RootComponent() {
         <Outlet />
         <Toaster />
         <ScrollToTop />
+        <SeasonalEffects />
       </CartProvider>
     </QueryClientProvider>
   );

@@ -30,6 +30,7 @@ import { Route as AuthenticatedSalesRouteImport } from './routes/_authenticated/
 import { Route as OrdersIndexRouteImport } from './routes/orders.index'
 import { Route as OrdersOrderNumberRouteImport } from './routes/orders.$orderNumber'
 import { Route as AuthenticatedPanelSplatRouteImport } from './routes/_authenticated/panel.$'
+import { Route as AuthenticatedPanelSalesSubscriptionsRouteImport } from './routes/_authenticated/panel.sales.subscriptions'
 import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
 
 const IndexRoute = IndexRouteImport.update({
@@ -136,6 +137,12 @@ const AuthenticatedPanelSplatRoute = AuthenticatedPanelSplatRouteImport.update({
   path: '/panel/$',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedPanelSalesSubscriptionsRoute =
+  AuthenticatedPanelSalesSubscriptionsRouteImport.update({
+    id: '/panel/sales/subscriptions',
+    path: '/panel/sales/subscriptions',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const ApiPublicPaymentsWebhookRoute =
   ApiPublicPaymentsWebhookRouteImport.update({
     id: '/api/public/payments/webhook',
@@ -164,6 +171,7 @@ export interface FileRoutesByFullPath {
   '/$storeSlug/': typeof StoreSlugIndexRoute
   '/orders/': typeof OrdersIndexRoute
   '/panel/$': typeof AuthenticatedPanelSplatRoute
+  '/panel/sales/subscriptions': typeof AuthenticatedPanelSalesSubscriptionsRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
 export interface FileRoutesByTo {
@@ -185,6 +193,7 @@ export interface FileRoutesByTo {
   '/$storeSlug': typeof StoreSlugIndexRoute
   '/orders': typeof OrdersIndexRoute
   '/panel/$': typeof AuthenticatedPanelSplatRoute
+  '/panel/sales/subscriptions': typeof AuthenticatedPanelSalesSubscriptionsRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
 export interface FileRoutesById {
@@ -210,6 +219,7 @@ export interface FileRoutesById {
   '/$storeSlug/': typeof StoreSlugIndexRoute
   '/orders/': typeof OrdersIndexRoute
   '/_authenticated/panel/$': typeof AuthenticatedPanelSplatRoute
+  '/_authenticated/panel/sales/subscriptions': typeof AuthenticatedPanelSalesSubscriptionsRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
 }
 export interface FileRouteTypes {
@@ -235,6 +245,7 @@ export interface FileRouteTypes {
     | '/$storeSlug/'
     | '/orders/'
     | '/panel/$'
+    | '/panel/sales/subscriptions'
     | '/api/public/payments/webhook'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -256,6 +267,7 @@ export interface FileRouteTypes {
     | '/$storeSlug'
     | '/orders'
     | '/panel/$'
+    | '/panel/sales/subscriptions'
     | '/api/public/payments/webhook'
   id:
     | '__root__'
@@ -280,6 +292,7 @@ export interface FileRouteTypes {
     | '/$storeSlug/'
     | '/orders/'
     | '/_authenticated/panel/$'
+    | '/_authenticated/panel/sales/subscriptions'
     | '/api/public/payments/webhook'
   fileRoutesById: FileRoutesById
 }
@@ -447,6 +460,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedPanelSplatRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/panel/sales/subscriptions': {
+      id: '/_authenticated/panel/sales/subscriptions'
+      path: '/panel/sales/subscriptions'
+      fullPath: '/panel/sales/subscriptions'
+      preLoaderRoute: typeof AuthenticatedPanelSalesSubscriptionsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/api/public/payments/webhook': {
       id: '/api/public/payments/webhook'
       path: '/api/public/payments/webhook'
@@ -464,6 +484,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedPurchasesRoute: typeof AuthenticatedPurchasesRoute
   AuthenticatedSalesRoute: typeof AuthenticatedSalesRoute
   AuthenticatedPanelSplatRoute: typeof AuthenticatedPanelSplatRoute
+  AuthenticatedPanelSalesSubscriptionsRoute: typeof AuthenticatedPanelSalesSubscriptionsRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -473,6 +494,8 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedPurchasesRoute: AuthenticatedPurchasesRoute,
   AuthenticatedSalesRoute: AuthenticatedSalesRoute,
   AuthenticatedPanelSplatRoute: AuthenticatedPanelSplatRoute,
+  AuthenticatedPanelSalesSubscriptionsRoute:
+    AuthenticatedPanelSalesSubscriptionsRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

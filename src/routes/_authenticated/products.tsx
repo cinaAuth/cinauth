@@ -136,11 +136,11 @@ function ProductsPage() {
                 <form onSubmit={handleCreate} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="product-name">Product name</Label>
-                    <Input id="product-name" placeholder="e.g. Ultimate Notion Template" value={name} onChange={(e) => setName(e.target.value)} required />
+                    <Input id="product-name" placeholder="e.g. Pro Digital Pack" value={name} onChange={(e) => setName(e.target.value)} required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="product-slug">Slug</Label>
-                    <Input id="product-slug" placeholder="ultimate-notion-template" value={slug} onChange={(e) => setSlug(e.target.value)} required />
+                    <Input id="product-slug" placeholder="pro-digital-pack" value={slug} onChange={(e) => setSlug(e.target.value)} required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="product-description">Description</Label>

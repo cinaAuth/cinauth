@@ -82,7 +82,10 @@ function OnboardingPage() {
         setStep(2);
         try {
           const res = await getMyStoreFn();
-          if (active && res?.store) setExistingStore({ name: res.store.name, slug: res.store.slug });
+          if (active && res?.store) {
+            navigate({ to: "/dashboard", replace: true });
+            return;
+          }
         } catch {
           /* ignore */
         }

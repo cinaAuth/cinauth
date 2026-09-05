@@ -31,7 +31,7 @@ function AuthenticatedLayout() {
         <div
           aria-hidden
           className="pointer-events-none absolute inset-x-0 top-0 h-64"
-          style={{ background: "radial-gradient(ellipse 60% 100% at 50% 0%, oklch(0.72 0.19 55 / 10%), transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse 60% 100% at 50% 0%, oklch(var(--accent-l) var(--accent-chroma) var(--accent-hue) / 10%), transparent 70%)" }}
         />
         <DashboardSidebar
           isAdmin={Boolean(roleData?.isAdmin)}

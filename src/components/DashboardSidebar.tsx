@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import logoAsset from "@/assets/cinaauth-logo-badge.png.asset.json";
+import { Logo } from "@/components/Logo";
 import {
   Sidebar,
   SidebarContent,
@@ -33,6 +33,7 @@ import {
   ShieldCheck,
   LogOut,
 } from "lucide-react";
+import { HeaderControls } from "@/components/HeaderControls";
 
 type Item = { title: string; url: string };
 type Group = { title: string; icon: typeof Home; items: Item[] };
@@ -154,14 +155,17 @@ export function DashboardSidebar({
   onSignOut?: () => void;
 }) {
   const pathname = useRouterState({ select: (r) => r.location.pathname });
-
   return (
     <Sidebar collapsible="offcanvas">
-      <SidebarHeader className="px-3 py-4">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logoAsset.url} alt="cinaAuth" className="h-12 w-auto" />
-        </Link>
+      <SidebarHeader className="px-3 py-3">
+        <div className="flex items-center justify-between gap-1">
+          <Link to="/" className="flex min-w-0 items-center gap-2">
+            <Logo />
+          </Link>
+          <HeaderControls />
+        </div>
       </SidebarHeader>
+
 
       <SidebarContent>
         <SidebarGroup>

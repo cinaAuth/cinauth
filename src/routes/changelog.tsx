@@ -1,14 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, GitCommitVertical } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
+import { Logo } from "@/components/Logo";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
 export const Route = createFileRoute("/changelog")({
   head: () => ({
     meta: [
       { title: "Changelog — cinaAuth" },
-      { name: "description", content: "Todos los cambios y novedades de la plataforma cinaAuth." },
+      { name: "description", content: "Latest updates, improvements, and fixes to cinaAuth." },
       { property: "og:title", content: "Changelog — cinaAuth" },
-      { property: "og:description", content: "Todos los cambios y novedades de la plataforma cinaAuth." },
+      { property: "og:description", content: "Latest updates, improvements, and fixes to cinaAuth." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -16,94 +17,126 @@ export const Route = createFileRoute("/changelog")({
   component: ChangelogPage,
 });
 
-type Entry = { type: "added" | "changed" | "fixed"; text: string };
-type Release = { date: string; title: string; entries: Entry[] };
+type Entry = { text: string; bold?: string };
+type Release = {
+  date: string;
+  label: string;
+  category: string;
+  title: string;
+  entries: Entry[];
+};
 
 const RELEASES: Release[] = [
   {
-    date: "2026-09-05",
-    title: "Efectos cyber y nueva portada",
+    date: "September 5, 2026",
+    label: "2026-09-05",
+    category: "Features",
+    title: "Customizable Panel & Direct Onboarding",
     entries: [
-      { type: "added", text: "Botón flotante para volver arriba, disponible en toda la web." },
-      { type: "added", text: "Efectos visuales: brillo neón en bordes, elevación de tarjetas, aparición al hacer scroll y glitch cyber." },
-      { type: "added", text: "Landing asimétrica con maqueta del panel conectada a datos reales." },
-      { type: "added", text: "Logo nuevo de cinaAuth sin fondo, aplicado al panel y al favicon." },
-      { type: "changed", text: "Web unificada al tema cyber: fondo negro, acento naranja, Orbitron + JetBrains Mono." },
-      { type: "changed", text: "El panel muestra el nombre del dueño de la tienda en la tarjeta de perfil." },
-      { type: "fixed", text: "Slugs de tienda duplicados generan una variante libre automáticamente." },
-      { type: "fixed", text: "Error de campo de notificaciones inexistente." },
+      { text: "Light/dark mode and a 6-color accent palette now work across the entire site.", bold: "Light/dark mode" },
+      { text: "Real notification center with an unread counter and mark-all-as-read.", bold: "Real notification center" },
+      { text: "Panel header with a compact logo and quick access to notifications, theme and changelog.", bold: "Panel header" },
+      { text: "All glows and accents now sync with the color chosen in the palette.", bold: "All glows and accents" },
+      { text: "If you already have a store, onboarding takes you straight to the dashboard.", bold: "onboarding" },
+      { text: "Seasonal ambient effects (snow, petals, leaves) and automatic seasonal accent themes.", bold: "Seasonal ambient effects" },
     ],
   },
   {
-    date: "2026-09-04",
-    title: "Lanzamiento de la plataforma",
+    date: "September 5, 2026",
+    label: "2026-09-05-b",
+    category: "Features",
+    title: "Cyber Effects & New Homepage",
     entries: [
-      { type: "added", text: "Marketplace estilo Amazon: búsqueda, categorías, reviews verificadas, wishlist y recomendaciones." },
-      { type: "added", text: "Carrito persistente y checkout con Stripe (pagos únicos y suscripciones)." },
-      { type: "added", text: "Suscripciones con alta, cancelación, upgrade y downgrade." },
-      { type: "added", text: "Panel de vendedor completo con 11 secciones y métricas en tiempo real." },
-      { type: "added", text: "Onboarding en 3 pasos: Account, Shop y Launch." },
-      { type: "added", text: "Login con email, Google OAuth y 2FA opcional (TOTP)." },
-      { type: "added", text: "Roles de staff (admin, moderator, user) con consola en /admin." },
-      { type: "added", text: "Analítica de tráfico: visitas, sesiones, fuentes, dispositivos y países." },
-      { type: "added", text: "Subdominios de tienda *.cinaauth.com." },
+      { text: "Floating back-to-top button available across the whole site.", bold: "back-to-top button" },
+      { text: "Visual effects: neon border glow, card lift on hover, scroll reveals and cyber glitch.", bold: "Visual effects" },
+      { text: "Asymmetric landing page with a dashboard preview connected to real data.", bold: "Asymmetric landing page" },
+      { text: "New cinaAuth logo with transparent background, applied to the panel and favicon.", bold: "New cinaAuth logo" },
+      { text: "Site unified under the cyber theme: black background, orange accent, Orbitron + JetBrains Mono.", bold: "cyber theme" },
+      { text: "The panel now shows the store owner's name on the profile card.", bold: "store owner's name" },
+      { text: "Duplicate store slugs now generate a free variant automatically.", bold: "Duplicate store slugs" },
+      { text: "Fixed a notifications field error.", bold: "Fixed" },
+    ],
+  },
+  {
+    date: "September 4, 2026",
+    label: "2026-09-04",
+    category: "Features",
+    title: "Platform Launch",
+    entries: [
+      { text: "Public marketplace: search, categories, verified reviews, wishlist and recommendations.", bold: "Public marketplace" },
+      { text: "Persistent cart and Stripe checkout with one-time payments and subscriptions.", bold: "Stripe checkout" },
+      { text: "Subscriptions with sign-up, cancellation, upgrade and downgrade.", bold: "Subscriptions" },
+      { text: "Full seller panel with 11 sections and real-time metrics.", bold: "Full seller panel" },
+      { text: "3-step onboarding: Account, Shop and Launch.", bold: "3-step onboarding" },
+      { text: "Sign in with email, Google OAuth and optional 2FA (TOTP).", bold: "Google OAuth" },
+      { text: "Staff roles (admin, moderator, user) with an admin console.", bold: "Staff roles" },
+      { text: "Traffic analytics: visits, sessions, sources, devices and countries.", bold: "Traffic analytics" },
+      { text: "Store subdomains on *.cinaauth.com.", bold: "Store subdomains" },
     ],
   },
 ];
 
-const BADGE: Record<Entry["type"], { label: string; className: string }> = {
-  added: { label: "ADDED", className: "border-landing-accent/50 text-landing-accent" },
-  changed: { label: "CHANGED", className: "border-landing-text/30 text-landing-text" },
-  fixed: { label: "FIXED", className: "border-landing-muted/40 text-landing-muted" },
-};
+function EntryText({ entry }: { entry: Entry }) {
+  if (!entry.bold) return <>{entry.text}</>;
+  const idx = entry.text.indexOf(entry.bold);
+  if (idx === -1) return <>{entry.text}</>;
+  return (
+    <>
+      {entry.text.slice(0, idx)}
+      <strong className="font-semibold text-foreground">{entry.bold}</strong>
+      {entry.text.slice(idx + entry.bold.length)}
+    </>
+  );
+}
 
 function ChangelogPage() {
   return (
-    <div className="min-h-screen bg-landing-bg text-landing-text cyber-grid">
-      <header className="border-b border-landing-accent/20 px-4 py-5 sm:px-6">
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="px-5 py-6 sm:px-8">
         <div className="mx-auto flex max-w-3xl items-center justify-between">
+          <Link to="/" aria-label="Back to home">
+            <Logo iconClassName="h-8 w-8 rounded-md" wordClassName="text-xl" />
+          </Link>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-landing-muted transition-colors hover:text-landing-accent"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" /> Back
           </Link>
-          <span className="font-[family-name:var(--font-display)] text-lg font-black tracking-tighter">
-            <span className="text-landing-accent">cina</span>Auth
-          </span>
         </div>
       </header>
 
-      <main className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-        <ScrollReveal>
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-landing-accent">// CHANGELOG</p>
-          <h1 className="mt-3 font-[family-name:var(--font-display)] text-4xl font-black uppercase tracking-tight text-glow-primary sm:text-5xl">
-            Release log
-          </h1>
-          <p className="mt-4 max-w-lg text-sm text-landing-muted">
-            Every change, fix and improvement shipped to the platform.
-          </p>
-        </ScrollReveal>
+      <main className="mx-auto max-w-3xl px-5 pb-20 pt-10 sm:px-8">
+        <h1 className="text-4xl font-bold tracking-tight">Changelog</h1>
+        <p className="mt-3 text-lg text-muted-foreground">
+          Latest updates, improvements, and fixes to cinaAuth.
+        </p>
 
-        <div className="mt-14 space-y-14">
+        <div className="mt-12">
           {RELEASES.map((release, ri) => (
-            <ScrollReveal key={release.date} delay={ri * 100}>
-              <section className="relative border-l-2 border-landing-accent/30 pl-6">
-                <span className="absolute -left-[7px] top-1 h-3 w-3 bg-landing-accent" />
-                <p className="font-mono text-xs uppercase tracking-widest text-landing-muted">{release.date}</p>
-                <h2 className="mt-1 font-[family-name:var(--font-display)] text-2xl font-bold uppercase tracking-tight">
+            <ScrollReveal key={release.label} delay={ri * 100}>
+              <section className="relative border-l border-border py-2 pl-8 sm:pl-10">
+                {/* Timeline dot */}
+                <span className="absolute -left-[7.5px] top-4 h-[15px] w-[15px] rounded-full border-2 border-primary bg-background" />
+
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="inline-flex items-center rounded-full border border-primary/60 px-3 py-1 text-sm text-primary">
+                    {release.category}
+                  </span>
+                  <time className="text-sm text-muted-foreground">{release.date}</time>
+                </div>
+
+                <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
                   {release.title}
                 </h2>
-                <ul className="mt-5 space-y-3">
+
+                <ul className="mt-6 space-y-4">
                   {release.entries.map((entry) => (
                     <li key={entry.text} className="flex items-start gap-3">
-                      <span
-                        className={`mt-0.5 inline-flex shrink-0 items-center gap-1 border px-1.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest ${BADGE[entry.type].className}`}
-                      >
-                        <GitCommitVertical className="h-3 w-3" />
-                        {BADGE[entry.type].label}
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground" />
+                      <span className="text-[15px] leading-relaxed text-muted-foreground">
+                        <EntryText entry={entry} />
                       </span>
-                      <span className="text-sm text-landing-text/90">{entry.text}</span>
                     </li>
                   ))}
                 </ul>
@@ -112,8 +145,8 @@ function ChangelogPage() {
           ))}
         </div>
 
-        <p className="mt-16 border-t border-landing-accent/10 pt-6 font-mono text-[10px] uppercase tracking-[0.3em] text-landing-muted">
-          © {new Date().getFullYear()} cinaAuth // End of log
+        <p className="mt-14 border-t border-border pt-6 text-xs text-muted-foreground">
+          © {new Date().getFullYear()} cinaAuth — End of log
         </p>
       </main>
     </div>

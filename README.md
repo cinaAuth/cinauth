@@ -4,7 +4,7 @@ Plataforma todo-en-uno para vender productos digitales. Crea tu tienda, sube pro
 
 ## Qué es cinaAuth
 
-cinaAuth es una plataforma de comercio digital tipo **SellAuth** + **Amazon** que permite a cualquier creador montar su propia tienda de productos digitales bajo un subdominio propio (`tutienda.cinaauth.com`). Cada vendedor tiene un panel de control completo, y los compradores pueden navegar por catálogo, dejar reseñas, guardar favoritos y pagar con tarjeta mediante Stripe.
+cinaAuth es una plataforma de comercio digital que permite a cualquier creador montar su propia tienda de productos digitales bajo un subdominio propio (`tutienda.cinaauth.com`). Cada vendedor tiene un panel de control completo, y los compradores pueden navegar por catálogo, dejar reseñas, guardar favoritos y pagar con tarjeta mediante Stripe.
 
 ## Funcionalidades principales
 
@@ -43,7 +43,7 @@ cinaAuth es una plataforma de comercio digital tipo **SellAuth** + **Amazon** qu
 - Checkout con Stripe (pagos únicos y suscripciones).
 - Seguimiento de pedidos.
 
-### Marketplace estilo Amazon
+### Marketplace público
 - Tablas: `categories`, `reviews`, `wishlists`.
 - Reviews con estrellas solo de compradores verificados.
 - Recomendaciones "Customers also bought".
@@ -115,8 +115,8 @@ Todos los cambios de la plataforma se documentan en [`CHANGELOG.md`](CHANGELOG.m
 
 Ver `roadmap.md` para el estado actual:
 
-- ✅ Marketplace estilo Amazon (tienda pública).
-- 🔄 Panel de vendedor estilo Notion (notas, tareas, dashboard personalizable, tablas tipo base de datos, colaboración).
+- ✅ Marketplace público (tienda pública).
+- 🔄 Panel de vendedor completo con métricas, gráficas, catálogo, ventas y configuración.
 
 ## Despliegue
 

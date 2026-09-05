@@ -26,7 +26,7 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 ## [2026-09-04]
 
 ### Añadido
-- Marketplace estilo Amazon: búsqueda, categorías, reviews con estrellas de compradores verificados, wishlist y recomendaciones.
+- Marketplace público: búsqueda, categorías, reviews con estrellas de compradores verificados, wishlist y recomendaciones.
 - Carrito persistente, checkout con Stripe (pagos únicos y suscripciones) y seguimiento de pedidos.
 - Suscripciones con lógica de negocio: alta, cancelación, upgrade/downgrade y avisos.
 - Panel de vendedor completo: Dashboard, Catalog, Sales, Audience, Marketing, Wallets, Storefront, Settings, Anti-Fraud, Developers y Account.

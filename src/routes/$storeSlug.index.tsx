@@ -228,6 +228,11 @@ function StorePage() {
                       storeName: store.name,
                       productSlug: product.slug,
                     });
+                    if (product.billing_interval) {
+                      toast.success(`${product.name} subscription ready`);
+                      navigate({ to: "/checkout" });
+                      return;
+                    }
                     toast.success(`${product.name} added to cart`);
                   }}
                 >

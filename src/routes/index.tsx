@@ -15,6 +15,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { getLandingStats } from "@/lib/landing.functions";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { Logo } from "@/components/Logo";
 
 const landingStatsQuery = queryOptions({
   queryKey: ["landing-stats"],
@@ -77,9 +78,7 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-landing-accent/20 bg-landing-bg/90 backdrop-blur-sm">
       <div className="flex h-16 items-center justify-between px-4 sm:px-6">
-        <Link to="/" className="font-[family-name:var(--font-display)] text-xl font-black tracking-tighter">
-          <span className="text-landing-accent">cina</span>Auth
-        </Link>
+        <Link to="/"><Logo wordClassName="text-landing-text" /></Link>
         <nav className="hidden items-center gap-8 font-mono text-xs uppercase tracking-widest text-landing-muted md:flex">
           <a href="#dashboard" className="transition-colors hover:text-landing-accent">Dashboard</a>
           <a href="#features" className="transition-colors hover:text-landing-accent">Specs</a>
@@ -146,7 +145,7 @@ function Hero() {
                 className="text-glitch"
                 data-text="Digital"
                 style={{
-                  WebkitTextStrokeWidth: "2px", WebkitTextStrokeColor: "#f97316",
+                  WebkitTextStrokeWidth: "2px", WebkitTextStrokeColor: "var(--primary)",
                   color: "transparent",
                   paintOrder: "stroke fill",
                 }}
@@ -482,7 +481,7 @@ function FinalCta() {
               <span
                 className="text-glitch text-transparent"
                 data-text="digital commerce"
-                style={{ WebkitTextStrokeWidth: "1.5px", WebkitTextStrokeColor: "#f97316" }}
+                style={{ WebkitTextStrokeWidth: "1.5px", WebkitTextStrokeColor: "var(--primary)" }}
               >
                 digital commerce
               </span>

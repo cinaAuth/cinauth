@@ -431,3 +431,47 @@ export const getMySubscriptions = createServerFn({ method: "GET" })
     if (error) throw new Error(error.message);
     return { subscriptions: subs ?? [] };
   });
+
+/** Seller subscriptions for a store. */
+export const getStoreSubscriptions = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .validator((data: { storeId: string; environment?: StripeEnv }) => data)
+  .handler(async ({ data, context }) => {
+    const { data: store, error: storeError } = await context.supabase
+      .from("stores")
+      .select("id, user_id, name")
+      .eq("id", data.storeId)
+      .maybeSingle();
+
+    if (storeError) throw new Error(storeError.message);
+    if (!store) throw new Error("Store not found");
+    if (store.user_id !== context.userId) throw new Error("Unauthorized");
+
+    const { data: subs, error } = await (context.supabase as any)
+      .from("subscriptions")
+      .select("id, buyer_email, user_id, product_id, price_id, status, current_period_start, current_period_end, cancel_at_period_end, environment, created_at, products(name)")
+      .eq("store_id", data.storeId)
+      .eq("environment", data.environment ?? "sandbox")
+      .order("created_at", { ascending: false })
+      .limit(200);
+
+    if (error) throw new Error(error.message);
+
+    return {
+      storeName: store.name as string,
+      subscriptions: (subs ?? []).map((sub: any) => ({
+        id: sub.id as string,
+        buyerEmail: sub.buyer_email as string,
+        buyerUserId: sub.user_id as string | null,
+        productId: sub.product_id as string,
+        productName: sub.products?.name ?? "Product",
+        priceId: sub.price_id as string,
+        status: sub.status as string,
+        currentPeriodStart: sub.current_period_start as string | null,
+        currentPeriodEnd: sub.current_period_end as string | null,
+        cancelAtPeriodEnd: Boolean(sub.cancel_at_period_end),
+        environment: sub.environment as string,
+        createdAt: sub.created_at as string,
+      })),
+    };
+  });
