@@ -1,12 +1,12 @@
 <div align="center">
 
 ```text
-        ██████╗██╗███╗   ██╗ █████╗ ██╗   ██╗████████╗██╗  ██╗
-       ██╔════╝██║████╗  ██║██╔══██╗██║   ██║╚══██╔══╝██║  ██║
-       ██║     ██║██╔██╗ ██║███████║██║   ██║   ██║   ███████║
-       ██║     ██║██║╚██╗██║██╔══██║██║   ██║   ██║   ██╔══██║
-       ╚██████╗██║██║ ╚████║██║  ██║╚██████╔╝   ██║   ██║  ██║
-        ╚═════╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝
+        ██████╗██╗███╗   ██╗ █████╗  █████╗ ██╗   ██╗████████╗██╗  ██╗
+       ██╔════╝██║████╗  ██║██╔══██╗██╔══██╗██║   ██║╚══██╔══╝██║  ██║
+       ██║     ██║██╔██╗ ██║███████║███████║██║   ██║   ██║   ███████║
+       ██║     ██║██║╚██╗██║██╔══██║██╔══██║██║   ██║   ██║   ██╔══██║
+       ╚██████╗██║██║ ╚████║██║  ██║██║  ██║╚██████╔╝   ██║   ██║  ██║
+        ╚═════╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝
 
         [ D I G I T A L   C O M M E R C E   ·   B U I L T   F O R   S C A L E ]
 ```
@@ -76,7 +76,7 @@ Orbitron + JetBrains Mono y bordes angulares.
 ```text
   FRONTEND   React 19 · TypeScript · Tailwind v4 · Radix UI / shadcn
   FRAMEWORK  TanStack Start v1 (SSR + server functions) · Vite
-  BACKEND    Lovable Cloud (Postgres + Auth + Storage + RLS)
+  BACKEND    cinaAuth Cloud (Postgres + Auth + Storage + RLS)
   PAGOS      Stripe (one-time · subscriptions · webhooks)
   CORREO     notify.cinauth.com
 ```
@@ -151,7 +151,7 @@ bun run format     # Prettier
 <div align="center">
 
 ```text
-─────────────  cinaAuth · powered by Lovable · © 2026  ─────────────
+────────────────────  cinaAuth · © 2026  ────────────────────
 ```
 
 </div>
