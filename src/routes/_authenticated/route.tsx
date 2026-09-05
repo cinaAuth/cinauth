@@ -1,1 +1,54 @@
-aW1wb3J0IHsgY3JlYXRlRmlsZVJvdXRlLCBPdXRsZXQsIHVzZVJvdXRlQ29udGV4dCB9IGZyb20gIkB0YW5zdGFjay9yZWFjdC1yb3V0ZXIiOwppbXBvcnQgeyByZWRpcmVjdCB9IGZyb20gIkB0YW5zdGFjay9yZWFjdC1yb3V0ZXIiOwppbXBvcnQgeyB1c2VRdWVyeSB9IGZyb20gIkB0YW5zdGFjay9yZWFjdC1xdWVyeSI7CmltcG9ydCB7IHVzZVNlcnZlckZuIH0gZnJvbSAiQHRhbnN0YWNrL3JlYWN0LXN0YXJ0IjsKaW1wb3J0IHsgc3VwYWJhc2UgfSBmcm9tICJAL2ludGVncmF0aW9ucy9zdXBhYmFzZS9jbGllbnQiOwppbXBvcnQgeyBTaWRlYmFyUHJvdmlkZXIsIFNpZGViYXJUcmlnZ2VyIH0gZnJvbSAiQC9jb21wb25lbnRzL3VpL3NpZGViYXIiOwppbXBvcnQgeyBEYXNoYm9hcmRTaWRlYmFyIH0gZnJvbSAiQC9jb21wb25lbnRzL0Rhc2hib2FyZFNpZGViYXIiOwppbXBvcnQgeyBnZXRNeVJvbGVzIH0gZnJvbSAiQC9saWIvYWRtaW4uZnVuY3Rpb25zIjsKaW1wb3J0IHsgZ2V0TXlTdG9yZSB9IGZyb20gIkAvbGliL3N0b3Jlcy5mdW5jdGlvbnMiOwoKZXhwb3J0IGNvbnN0IFJvdXRlID0gY3JlYXRlRmlsZVJvdXRlKCIvX2F1dGhlbnRpY2F0ZWQiKSh7CiAgc3NyOiBmYWxzZSwKICBiZWZvcmVMb2FkOiBhc3luYyAoKSA9PiB7CiAgICBjb25zdCB7IGRhdGEsIGVycm9yIH0gPSBhd2FpdCBzdXBhYmFzZS5hdXRoLmdldFVzZXIoKTsKICAgIGlmIChlcnJvciB8fCAhZGF0YS51c2VyKSB0aHJvdyByZWRpcmVjdCh7IHRvOiAiL2F1dGgiIH0pOwogICAgcmV0dXJuIHsgdXNlcjogZGF0YS51c2VyIH07CiAgfSwKICBjb21wb25lbnQ6IEF1dGhlbnRpY2F0ZWRMYXlvdXQsCn0pOwoKZnVuY3Rpb24gQXV0aGVudGljYXRlZExheW91dCgpIHsKICBjb25zdCB7IHVzZXIgfSA9IHVzZVJvdXRlQ29udGV4dCh7IGZyb206ICIvX2F1dGhlbnRpY2F0ZWQiIH0pOwogIGNvbnN0IGdldE15Um9sZXNGbiA9IHVzZVNlcnZlckZuKGdldE15Um9sZXMpOwogIGNvbnN0IHsgZGF0YTogcm9sZURhdGEgfSA9IHVzZVF1ZXJ5KHsgcXVlcnlLZXk6IFsibXktcm9sZXMiXSwgcXVlcnlGbjogKCkgPT4gZ2V0TXlSb2xlc0ZuKCkgfSk7CiAgY29uc3QgZ2V0TXlTdG9yZUZuID0gdXNlU2VydmVyRm4oZ2V0TXlTdG9yZSk7CiAgY29uc3QgeyBkYXRhOiBzdG9yZURhdGEgfSA9IHVzZVF1ZXJ5KHsgcXVlcnlLZXk6IFsibXktc3RvcmUiXSwgcXVlcnlGbjogKCkgPT4gZ2V0TXlTdG9yZUZuKCkgfSk7CgogIHJldHVybiAoCiAgICA8U2lkZWJhclByb3ZpZGVyPgogICAgICA8ZGl2IGNsYXNzTmFtZT0iY3liZXItZ3JpZCByZWxhdGl2ZSBmbGV4IG1pbi1oLXNjcmVlbiB3LWZ1bGwgYmctYmFja2dyb3VuZCB0ZXh0LWZvcmVncm91bmQiPgogICAgICAgIDxkaXYKICAgICAgICAgIGFyaWEtaGlkZGVuCiAgICAgICAgICBjbGFzc05hbWU9InBvaW50ZXItZXZlbnRzLW5vbmUgYWJzb2x1dGUgaW5zZXQteC0wIHRvcC0wIGgtNjQiCiAgICAgICAgICBzdHlsZT17eyBiYWNrZ3JvdW5kOiAicmFkaWFsLWdyYWRpZW50KGVsbGlwc2UgNjAlIDEwMCUgYXQgNTAlIDAlLCBva2xjaCgwLjcyIDAuMTkgNTUgLyAxMCUpLCB0cmFuc3BhcmVudCA3MCUpIiB9fQogICAgICAgIC8+CiAgICAgICAgPERhc2hib2FyZFNpZGViYXIKICAgICAgICAgIGlzQWRtaW49e0Jvb2xlYW4ocm9sZURhdGE/LmlzQWRtaW4pfQogICAgICAgICAgc3RvcmU9e3N0b3JlRGF0YT8uc3RvcmUgPyB7IG5hbWU6IHN0b3JlRGF0YS5zdG9yZS5uYW1lLCBzbHVnOiBzdG9yZURhdGEuc3RvcmUuc2x1ZyB9IDogbnVsbH0KICAgICAgICAgIHVzZXI9e3VzZXIgPyB7IGVtYWlsOiB1c2VyLmVtYWlsID8/ICLigJQiLCBuYW1lOiBzdG9yZURhdGE/Lm93bmVyTmFtZSA/PyBudWxsIH0gOiBudWxsfQogICAgICAgICAgb25TaWduT3V0PXsoKSA9PiBzdXBhYmFzZS5hdXRoLnNpZ25PdXQoKX0KICAgICAgICAvPgogICAgICAgIDxkaXYgY2xhc3NOYW1lPSJyZWxhdGl2ZSBmbGV4IG1pbi13LTAgZmxleC0xIGZsZXgtY29sIj4KICAgICAgICAgIDxoZWFkZXIgY2xhc3NOYW1lPSJzdGlja3kgdG9wLTAgei00MCBmbGV4IGgtMTQgaXRlbXMtY2VudGVyIGJvcmRlci1iIGJvcmRlci1wcmltYXJ5LzIwIGJnLWJhY2tncm91bmQvODAgcHgtMyBiYWNrZHJvcC1ibHVyLW1kIj4KICAgICAgICAgICAgPFNpZGViYXJUcmlnZ2VyIC8+CiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT0ibWwtMyBmb250LWRpc3BsYXkgdGV4dC1bMTBweF0gdXBwZXJjYXNlIHRyYWNraW5nLVswLjNlbV0gdGV4dC1wcmltYXJ5LzcwIj5DSU5BQVVUSCAvLyBDT05UUk9MX1BBTkVMPC9zcGFuPgogICAgICAgICAgPC9oZWFkZXI+CiAgICAgICAgICA8bWFpbiBjbGFzc05hbWU9Im1pbi13LTAgZmxleC0xIj4KICAgICAgICAgICAgPE91dGxldCAvPgogICAgICAgICAgPC9tYWluPgogICAgICAgIDwvZGl2PgogICAgICA8L2Rpdj4KICAgIDwvU2lkZWJhclByb3ZpZGVyPgogICk7Cn0K
+import { createFileRoute, Outlet, useRouteContext } from "@tanstack/react-router";
+import { redirect } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
+import { supabase } from "@/integrations/supabase/client";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { DashboardSidebar } from "@/components/DashboardSidebar";
+import { getMyRoles } from "@/lib/admin.functions";
+import { getMyStore } from "@/lib/stores.functions";
+
+export const Route = createFileRoute("/_authenticated")({
+  ssr: false,
+  beforeLoad: async () => {
+    const { data, error } = await supabase.auth.getUser();
+    if (error || !data.user) throw redirect({ to: "/auth" });
+    return { user: data.user };
+  },
+  component: AuthenticatedLayout,
+});
+
+function AuthenticatedLayout() {
+  const { user } = useRouteContext({ from: "/_authenticated" });
+  const getMyRolesFn = useServerFn(getMyRoles);
+  const { data: roleData } = useQuery({ queryKey: ["my-roles"], queryFn: () => getMyRolesFn() });
+  const getMyStoreFn = useServerFn(getMyStore);
+  const { data: storeData } = useQuery({ queryKey: ["my-store"], queryFn: () => getMyStoreFn() });
+
+  return (
+    <SidebarProvider>
+      <div className="cyber-grid relative flex min-h-screen w-full bg-background text-foreground">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-64"
+          style={{ background: "radial-gradient(ellipse 60% 100% at 50% 0%, oklch(0.72 0.19 55 / 10%), transparent 70%)" }}
+        />
+        <DashboardSidebar
+          isAdmin={Boolean(roleData?.isAdmin)}
+          store={storeData?.store ? { name: storeData.store.name, slug: storeData.store.slug } : null}
+          user={user ? { email: user.email ?? "—", name: storeData?.ownerName ?? null } : null}
+          onSignOut={() => supabase.auth.signOut()}
+        />
+        <div className="relative flex min-w-0 flex-1 flex-col">
+          <header className="sticky top-0 z-40 flex h-14 items-center border-b border-primary/20 bg-background/80 px-3 backdrop-blur-md">
+            <SidebarTrigger />
+            <span className="ml-3 font-display text-[10px] uppercase tracking-[0.3em] text-primary/70">CINAAUTH // CONTROL_PANEL</span>
+          </header>
+          <main className="min-w-0 flex-1">
+            <Outlet />
+          </main>
+        </div>
+      </div>
+    </SidebarProvider>
+  );
+}

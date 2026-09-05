@@ -1,1 +1,86 @@
-aW1wb3J0IHsgY3JlYXRlU2VydmVyRm4gfSBmcm9tICJAdGFuc3RhY2svcmVhY3Qtc3RhcnQiOwoKZXhwb3J0IHR5cGUgTGFuZGluZ0RheSA9IHsgZGF0ZTogc3RyaW5nOyByZXZlbnVlOiBudW1iZXIgfTsKZXhwb3J0IHR5cGUgTGFuZGluZ09yZGVyID0gewogIGlkOiBzdHJpbmc7CiAgcmVmZXJlbmNlOiBzdHJpbmc7CiAgcHJvZHVjdDogc3RyaW5nOwogIGFtb3VudDogbnVtYmVyOwogIGN1cnJlbmN5OiBzdHJpbmc7CiAgc3RhdHVzOiBzdHJpbmc7Cn07CmV4cG9ydCB0eXBlIExhbmRpbmdTdGF0cyA9IHsKICB0b3RhbFJldmVudWU6IG51bWJlcjsKICB0b3RhbE9yZGVyczogbnVtYmVyOwogIHVuaXF1ZUN1c3RvbWVyczogbnVtYmVyOwogIGN1cnJlbmN5OiBzdHJpbmc7CiAgZGF5czogTGFuZGluZ0RheVtdOwogIG9yZGVyczogTGFuZGluZ09yZGVyW107Cn07CgovLyBQdWJsaWMsIGFnZ3JlZ2F0ZS1vbmx5IHBsYXRmb3JtIHN0YXRzIGZvciB0aGUgbGFuZGluZyBkYXNoYm9hcmQgcHJldmlldy4KZXhwb3J0IGNvbnN0IGdldExhbmRpbmdTdGF0cyA9IGNyZWF0ZVNlcnZlckZuKHsgbWV0aG9kOiAiR0VUIiB9KS5oYW5kbGVyKGFzeW5jICgpOiBQcm9taXNlPExhbmRpbmdTdGF0cz4gPT4gewogIGNvbnN0IHsgc3VwYWJhc2VBZG1pbiB9ID0gYXdhaXQgaW1wb3J0KCJAL2ludGVncmF0aW9ucy9zdXBhYmFzZS9jbGllbnQuc2VydmVyIik7CgogIGNvbnN0IHNpbmNlID0gbmV3IERhdGUoRGF0ZS5ub3coKSAtIDYgKiAyNCAqIDYwICogNjAgKiAxMDAwKTsKICBzaW5jZS5zZXRVVENIb3VycygwLCAwLCAwLCAwKTsKCiAgY29uc3QgeyBkYXRhOiBwYWlkT3JkZXJzIH0gPSBhd2FpdCBzdXBhYmFzZUFkbWluCiAgICAuZnJvbSgib3JkZXJzIikKICAgIC5zZWxlY3QoImlkLCBvcmRlcl9udW1iZXIsIHRvdGFsLCBjdXJyZW5jeSwgc3RhdHVzLCBidXllcl9lbWFpbCwgY3JlYXRlZF9hdCIpCiAgICAuZXEoInN0YXR1cyIsICJwYWlkIikKICAgIC5vcmRlcigiY3JlYXRlZF9hdCIsIHsgYXNjZW5kaW5nOiBmYWxzZSB9KQogICAgLmxpbWl0KDUwMCk7CgogIGNvbnN0IHJvd3MgPSBwYWlkT3JkZXJzID8/IFtdOwogIGNvbnN0IHRvdGFsUmV2ZW51ZSA9IHJvd3MucmVkdWNlKChzdW0sIG8pID0+IHN1bSArIE51bWJlcihvLnRvdGFsID8/IDApLCAwKTsKICBjb25zdCB1bmlxdWVDdXN0b21lcnMgPSBuZXcgU2V0KHJvd3MubWFwKChvKSA9PiBvLmJ1eWVyX2VtYWlsKSkuc2l6ZTsKICBjb25zdCBjdXJyZW5jeSA9IHJvd3NbMF0/LmN1cnJlbmN5ID8/ICJVU0QiOwoKICAvLyBSZXZlbnVlIGZvciB0aGUgbGFzdCA3IGRheXMKICBjb25zdCBkYXlzOiBMYW5kaW5nRGF5W10gPSBbXTsKICBmb3IgKGxldCBpID0gNjsgaSA+PSAwOyBpLS0pIHsKICAgIGNvbnN0IGQgPSBuZXcgRGF0ZShEYXRlLm5vdygpIC0gaSAqIDI0ICogNjAgKiA2MCAqIDEwMDApOwogICAgZC5zZXRVVENIb3VycygwLCAwLCAwLCAwKTsKICAgIGNvbnN0IGtleSA9IGQudG9JU09TdHJpbmcoKS5zbGljZSgwLCAxMCk7CiAgICBjb25zdCByZXZlbnVlID0gcm93cwogICAgICAuZmlsdGVyKChvKSA9PiBTdHJpbmcoby5jcmVhdGVkX2F0KS5zbGljZSgwLCAxMCkgPT09IGtleSkKICAgICAgLnJlZHVjZSgoc3VtLCBvKSA9PiBzdW0gKyBOdW1iZXIoby50b3RhbCA/PyAwKSwgMCk7CiAgICBkYXlzLnB1c2goeyBkYXRlOiBrZXksIHJldmVudWUgfSk7CiAgfQoKICAvLyBMYXRlc3QgMyBwYWlkIG9yZGVycyB3aXRoIHRoZWlyIGZpcnN0IHByb2R1Y3QgbmFtZQogIGNvbnN0IGxhdGVzdCA9IHJvd3Muc2xpY2UoMCwgMyk7CiAgbGV0IG5hbWVzID0gbmV3IE1hcDxzdHJpbmcsIHN0cmluZz4oKTsKICBpZiAobGF0ZXN0Lmxlbmd0aCkgewogICAgY29uc3QgeyBkYXRhOiBpdGVtcyB9ID0gYXdhaXQgc3VwYWJhc2VBZG1pbgogICAgICAuZnJvbSgib3JkZXJfaXRlbXMiKQogICAgICAuc2VsZWN0KCJvcmRlcl9pZCwgcHJvZHVjdHMobmFtZSkiKQogICAgICAuaW4oCiAgICAgICAgIm9yZGVyX2lkIiwKICAgICAgICBsYXRlc3QubWFwKChvKSA9PiBvLmlkKSwKICAgICAgKTsKICAgIGZvciAoY29uc3QgaXQgb2YgaXRlbXMgPz8gW10pIHsKICAgICAgY29uc3QgcHJvZHVjdE5hbWUgPSAoaXQgYXMgeyBwcm9kdWN0czogeyBuYW1lOiBzdHJpbmcgfSB8IG51bGwgfSkucHJvZHVjdHM/Lm5hbWU7CiAgICAgIGlmIChwcm9kdWN0TmFtZSAmJiAhbmFtZXMuaGFzKGl0Lm9yZGVyX2lkKSkgbmFtZXMuc2V0KGl0Lm9yZGVyX2lkLCBwcm9kdWN0TmFtZSk7CiAgICB9CiAgfQoKICBjb25zdCBvcmRlcnM6IExhbmRpbmdPcmRlcltdID0gbGF0ZXN0Lm1hcCgobykgPT4gKHsKICAgIGlkOiBvLmlkLAogICAgcmVmZXJlbmNlOiBgIyR7KG8ub3JkZXJfbnVtYmVyID8/IG8uaWQpLnRvU3RyaW5nKCkuc2xpY2UoMCwgMTApLnRvVXBwZXJDYXNlKCl9YCwKICAgIHByb2R1Y3Q6IG5hbWVzLmdldChvLmlkKSA/PyAiRGlnaXRhbCBwcm9kdWN0IiwKICAgIGFtb3VudDogTnVtYmVyKG8udG90YWwgPz8gMCksCiAgICBjdXJyZW5jeTogby5jdXJyZW5jeSA/PyBjdXJyZW5jeSwKICAgIHN0YXR1czogIlBBSUQiLAogIH0pKTsKCiAgcmV0dXJuIHsKICAgIHRvdGFsUmV2ZW51ZSwKICAgIHRvdGFsT3JkZXJzOiByb3dzLmxlbmd0aCwKICAgIHVuaXF1ZUN1c3RvbWVycywKICAgIGN1cnJlbmN5LAogICAgZGF5cywKICAgIG9yZGVycywKICB9Owp9KTsK
+import { createServerFn } from "@tanstack/react-start";
+
+export type LandingDay = { date: string; revenue: number };
+export type LandingOrder = {
+  id: string;
+  reference: string;
+  product: string;
+  amount: number;
+  currency: string;
+  status: string;
+};
+export type LandingStats = {
+  totalRevenue: number;
+  totalOrders: number;
+  uniqueCustomers: number;
+  currency: string;
+  days: LandingDay[];
+  orders: LandingOrder[];
+};
+
+// Public, aggregate-only platform stats for the landing dashboard preview.
+export const getLandingStats = createServerFn({ method: "GET" }).handler(async (): Promise<LandingStats> => {
+  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+
+  const since = new Date(Date.now() - 6 * 24 * 60 * 60 * 1000);
+  since.setUTCHours(0, 0, 0, 0);
+
+  const { data: paidOrders } = await supabaseAdmin
+    .from("orders")
+    .select("id, order_number, total, currency, status, buyer_email, created_at")
+    .eq("status", "paid")
+    .order("created_at", { ascending: false })
+    .limit(500);
+
+  const rows = paidOrders ?? [];
+  const totalRevenue = rows.reduce((sum, o) => sum + Number(o.total ?? 0), 0);
+  const uniqueCustomers = new Set(rows.map((o) => o.buyer_email)).size;
+  const currency = rows[0]?.currency ?? "USD";
+
+  // Revenue for the last 7 days
+  const days: LandingDay[] = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(Date.now() - i * 24 * 60 * 60 * 1000);
+    d.setUTCHours(0, 0, 0, 0);
+    const key = d.toISOString().slice(0, 10);
+    const revenue = rows
+      .filter((o) => String(o.created_at).slice(0, 10) === key)
+      .reduce((sum, o) => sum + Number(o.total ?? 0), 0);
+    days.push({ date: key, revenue });
+  }
+
+  // Latest 3 paid orders with their first product name
+  const latest = rows.slice(0, 3);
+  let names = new Map<string, string>();
+  if (latest.length) {
+    const { data: items } = await supabaseAdmin
+      .from("order_items")
+      .select("order_id, products(name)")
+      .in(
+        "order_id",
+        latest.map((o) => o.id),
+      );
+    for (const it of items ?? []) {
+      const productName = (it as { products: { name: string } | null }).products?.name;
+      if (productName && !names.has(it.order_id)) names.set(it.order_id, productName);
+    }
+  }
+
+  const orders: LandingOrder[] = latest.map((o) => ({
+    id: o.id,
+    reference: `#${(o.order_number ?? o.id).toString().slice(0, 10).toUpperCase()}`,
+    product: names.get(o.id) ?? "Digital product",
+    amount: Number(o.total ?? 0),
+    currency: o.currency ?? currency,
+    status: "PAID",
+  }));
+
+  return {
+    totalRevenue,
+    totalOrders: rows.length,
+    uniqueCustomers,
+    currency,
+    days,
+    orders,
+  };
+});

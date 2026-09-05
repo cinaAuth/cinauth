@@ -1,1 +1,15 @@
-IyBSb2FkbWFwCgojIyBGYXNlIDEg4oCUIE1hcmtldHBsYWNlIGVzdGlsbyBBbWF6b24gKHRpZW5kYSBww7pibGljYSkg4pyFCi0gW3hdIFRhYmxhczogY2F0ZWdvcmllcywgcmV2aWV3cywgd2lzaGxpc3RzCi0gW3hdIELDunNxdWVkYSB5IGZpbHRybyBwb3IgY2F0ZWdvcsOtYXMgZW4gbGEgdGllbmRhCi0gW3hdIFJldmlld3MgY29uIGVzdHJlbGxhcyAoc29sbyBjb21wcmFkb3JlcyB2ZXJpZmljYWRvcykKLSBbeF0gUmVjb21lbmRhY2lvbmVzICJDdXN0b21lcnMgYWxzbyBib3VnaHQiCi0gW3hdIFdpc2hsaXN0IChjb3JhesOzbiwgcmVxdWllcmUgbG9naW4pCi0gWyBdIEdlc3Rpw7NuIGRlIGNhdGVnb3LDrWFzIGRlc2RlIGVsIHBhbmVsIGRlbCB2ZW5kZWRvcgoKIyMgRmFzZSAyIOKAlCBQYW5lbCBkZSB2ZW5kZWRvciBlc3RpbG8gU2VsbEF1dGgKLSBbIF0gUmVmaW5hciBkYXNoYm9hcmQgYWN0dWFsIChLUElzLCBncsOhZmljYXMsIHRhYmxhIGRlIHBlZGlkb3MpCi0gWyBdIEdlc3Rpw7NuIGRlIHByb2R1Y3RvcyB5IGNhdGVnb3LDrWFzCi0gWyBdIEhpc3RvcmlhbCBkZSB2ZW50YXMgeSBjbGllbnRlcwotIFsgXSBDb25maWd1cmFjacOzbiBkZSBsYSB0aWVuZGEgeSBwYWdvcwo=
+# Roadmap
+
+## Fase 1 — Marketplace estilo Amazon (tienda pública) ✅
+- [x] Tablas: categories, reviews, wishlists
+- [x] Búsqueda y filtro por categorías en la tienda
+- [x] Reviews con estrellas (solo compradores verificados)
+- [x] Recomendaciones "Customers also bought"
+- [x] Wishlist (corazón, requiere login)
+- [ ] Gestión de categorías desde el panel del vendedor
+
+## Fase 2 — Panel de vendedor estilo SellAuth
+- [ ] Refinar dashboard actual (KPIs, gráficas, tabla de pedidos)
+- [ ] Gestión de productos y categorías
+- [ ] Historial de ventas y clientes
+- [ ] Configuración de la tienda y pagos

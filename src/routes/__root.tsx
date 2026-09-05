@@ -1,1 +1,155 @@
-aW1wb3J0IHsgUXVlcnlDbGllbnQsIFF1ZXJ5Q2xpZW50UHJvdmlkZXIgfSBmcm9tICJAdGFuc3RhY2svcmVhY3QtcXVlcnkiOwppbXBvcnQgewogIE91dGxldCwKICBMaW5rLAogIGNyZWF0ZVJvb3RSb3V0ZVdpdGhDb250ZXh0LAogIHVzZVJvdXRlciwKICBIZWFkQ29udGVudCwKICBTY3JpcHRzLAp9IGZyb20gIkB0YW5zdGFjay9yZWFjdC1yb3V0ZXIiOwppbXBvcnQgeyB1c2VFZmZlY3QsIHR5cGUgUmVhY3ROb2RlIH0gZnJvbSAicmVhY3QiOwoKaW1wb3J0IGFwcENzcyBmcm9tICIuLi9zdHlsZXMuY3NzP3VybCI7CmltcG9ydCB7IHJlcG9ydExvdmFibGVFcnJvciB9IGZyb20gIi4uL2xpYi9sb3ZhYmxlLWVycm9yLXJlcG9ydGluZyI7CmltcG9ydCB7IHN1cGFiYXNlIH0gZnJvbSAiQC9pbnRlZ3JhdGlvbnMvc3VwYWJhc2UvY2xpZW50IjsKaW1wb3J0IHsgQ2FydFByb3ZpZGVyIH0gZnJvbSAiQC9saWIvY2FydCI7CmltcG9ydCB7IFRvYXN0ZXIgfSBmcm9tICJAL2NvbXBvbmVudHMvdWkvc29ubmVyIjsKCmZ1bmN0aW9uIE5vdEZvdW5kQ29tcG9uZW50KCkgewogIHJldHVybiAoCiAgICA8ZGl2IGNsYXNzTmFtZT0iZmxleCBtaW4taC1zY3JlZW4gaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIGJnLWJhY2tncm91bmQgcHgtNCI+CiAgICAgIDxkaXYgY2xhc3NOYW1lPSJtYXgtdy1tZCB0ZXh0LWNlbnRlciI+CiAgICAgICAgPGgxIGNsYXNzTmFtZT0idGV4dC03eGwgZm9udC1ib2xkIHRleHQtZm9yZWdyb3VuZCI+NDA0PC9oMT4KICAgICAgICA8aDIgY2xhc3NOYW1lPSJtdC00IHRleHQteGwgZm9udC1zZW1pYm9sZCB0ZXh0LWZvcmVncm91bmQiPlBhZ2Ugbm90IGZvdW5kPC9oMj4KICAgICAgICA8cCBjbGFzc05hbWU9Im10LTIgdGV4dC1zbSB0ZXh0LW11dGVkLWZvcmVncm91bmQiPgogICAgICAgICAgVGhlIHBhZ2UgeW91J3JlIGxvb2tpbmcgZm9yIGRvZXNuJ3QgZXhpc3Qgb3IgaGFzIGJlZW4gbW92ZWQuCiAgICAgICAgPC9wPgogICAgICAgIDxkaXYgY2xhc3NOYW1lPSJtdC02Ij4KICAgICAgICAgIDxMaW5rCiAgICAgICAgICAgIHRvPSIvIgogICAgICAgICAgICBjbGFzc05hbWU9ImlubGluZS1mbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciByb3VuZGVkLW1kIGJnLXByaW1hcnkgcHgtNCBweS0yIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1wcmltYXJ5LWZvcmVncm91bmQgdHJhbnNpdGlvbi1jb2xvcnMgaG92ZXI6YmctcHJpbWFyeS85MCIKICAgICAgICAgID4KICAgICAgICAgICAgR28gaG9tZQogICAgICAgICAgPC9MaW5rPgogICAgICAgIDwvZGl2PgogICAgICA8L2Rpdj4KICAgIDwvZGl2PgogICk7Cn0KCmZ1bmN0aW9uIEVycm9yQ29tcG9uZW50KHsgZXJyb3IsIHJlc2V0IH06IHsgZXJyb3I6IEVycm9yOyByZXNldDogKCkgPT4gdm9pZCB9KSB7CiAgY29uc29sZS5lcnJvcihlcnJvcik7CiAgY29uc3Qgcm91dGVyID0gdXNlUm91dGVyKCk7CiAgdXNlRWZmZWN0KCgpID0+IHsKICAgIHJlcG9ydExvdmFibGVFcnJvcihlcnJvciwgeyBib3VuZGFyeTogInRhbnN0YWNrX3Jvb3RfZXJyb3JfY29tcG9uZW50IiB9KTsKICB9LCBbZXJyb3JdKTsKCiAgcmV0dXJuICgKICAgIDxkaXYgY2xhc3NOYW1lPSJmbGV4IG1pbi1oLXNjcmVlbiBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgYmctYmFja2dyb3VuZCBweC00Ij4KICAgICAgPGRpdiBjbGFzc05hbWU9Im1heC13LW1kIHRleHQtY2VudGVyIj4KICAgICAgICA8aDEgY2xhc3NOYW1lPSJ0ZXh0LXhsIGZvbnQtc2VtaWJvbGQgdHJhY2tpbmctdGlnaHQgdGV4dC1mb3JlZ3JvdW5kIj4KICAgICAgICAgIFRoaXMgcGFnZSBkaWRuJ3QgbG9hZAogICAgICAgIDwvaDE+CiAgICAgICAgPHAgY2xhc3NOYW1lPSJtdC0yIHRleHQtc20gdGV4dC1tdXRlZC1mb3JlZ3JvdW5kIj4KICAgICAgICAgIFNvbWV0aGluZyB3ZW50IHdyb25nIG9uIG91ciBlbmQuIFlvdSBjYW4gdHJ5IHJlZnJlc2hpbmcgb3IgaGVhZCBiYWNrIGhvbWUuCiAgICAgICAgPC9wPgogICAgICAgIDxkaXYgY2xhc3NOYW1lPSJtdC02IGZsZXggZmxleC13cmFwIGp1c3RpZnktY2VudGVyIGdhcC0yIj4KICAgICAgICAgIDxidXR0b24KICAgICAgICAgICAgb25DbGljaz17KCkgPT4gewogICAgICAgICAgICAgIHJvdXRlci5pbnZhbGlkYXRlKCk7CiAgICAgICAgICAgICAgcmVzZXQoKTsKICAgICAgICAgICAgfX0KICAgICAgICAgICAgY2xhc3NOYW1lPSJpbmxpbmUtZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgcm91bmRlZC1tZCBiZy1wcmltYXJ5IHB4LTQgcHktMiB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtcHJpbWFyeS1mb3JlZ3JvdW5kIHRyYW5zaXRpb24tY29sb3JzIGhvdmVyOmJnLXByaW1hcnkvOTAiCiAgICAgICAgICA+CiAgICAgICAgICAgIFRyeSBhZ2FpbgogICAgICAgICAgPC9idXR0b24+CiAgICAgICAgICA8YQogICAgICAgICAgICBocmVmPSIvIgogICAgICAgICAgICBjbGFzc05hbWU9ImlubGluZS1mbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciByb3VuZGVkLW1kIGJvcmRlciBib3JkZXItaW5wdXQgYmctYmFja2dyb3VuZCBweC00IHB5LTIgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWZvcmVncm91bmQgdHJhbnNpdGlvbi1jb2xvcnMgaG92ZXI6YmctYWNjZW50IgogICAgICAgICAgPgogICAgICAgICAgICBHbyBob21lCiAgICAgICAgICA8L2E+CiAgICAgICAgPC9kaXY+CiAgICAgIDwvZGl2PgogICAgPC9kaXY+CiAgKTsKfQoKZXhwb3J0IGNvbnN0IFJvdXRlID0gY3JlYXRlUm9vdFJvdXRlV2l0aENvbnRleHQ8eyBxdWVyeUNsaWVudDogUXVlcnlDbGllbnQgfT4oKSh7CiAgaGVhZDogKCkgPT4gKHsKICAgIG1ldGE6IFsKICAgICAgeyBjaGFyU2V0OiAidXRmLTgiIH0sCiAgICAgIHsgbmFtZTogInZpZXdwb3J0IiwgY29udGVudDogIndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xIiB9LAogICAgICB7IHRpdGxlOiAiY2luYUF1dGgg4oCUIFNlbGwgRGlnaXRhbCBQcm9kdWN0cyIgfSwKICAgICAgeyBuYW1lOiAiZGVzY3JpcHRpb24iLCBjb250ZW50OiAiVGhlIGFsbC1pbi1vbmUgcGxhdGZvcm0gdG8gc2VsbCBkaWdpdGFsIHByb2R1Y3RzLiBDcmVhdGUgeW91ciBzdG9yZSwgdXBsb2FkIHByb2R1Y3RzLCBhbmQgc3RhcnQgc2VsbGluZyBpbiBtaW51dGVzLiIgfSwKICAgICAgeyBuYW1lOiAiYXV0aG9yIiwgY29udGVudDogImNpbmFBdXRoIiB9LAogICAgICB7IHByb3BlcnR5OiAib2c6dGl0bGUiLCBjb250ZW50OiAiY2luYUF1dGgg4oCUIFNlbGwgRGlnaXRhbCBQcm9kdWN0cyIgfSwKICAgICAgeyBwcm9wZXJ0eTogIm9nOmRlc2NyaXB0aW9uIiwgY29udGVudDogIlRoZSBhbGwtaW4tb25lIHBsYXRmb3JtIHRvIHNlbGwgZGlnaXRhbCBwcm9kdWN0cy4gQ3JlYXRlIHlvdXIgc3RvcmUsIHVwbG9hZCBwcm9kdWN0cywgYW5kIHN0YXJ0IHNlbGxpbmcgaW4gbWludXRlcy4iIH0sCiAgICAgIHsgcHJvcGVydHk6ICJvZzp0eXBlIiwgY29udGVudDogIndlYnNpdGUiIH0sCiAgICAgIHsgbmFtZTogInR3aXR0ZXI6Y2FyZCIsIGNvbnRlbnQ6ICJzdW1tYXJ5X2xhcmdlX2ltYWdlIiB9LAogICAgICB7IG5hbWU6ICJ0d2l0dGVyOnNpdGUiLCBjb250ZW50OiAiQGNpbmFhdXRoIiB9LAogICAgICB7IG5hbWU6ICJ0aGVtZS1jb2xvciIsIGNvbnRlbnQ6ICIjMGIwYjEyIiB9LAogICAgICB7IG5hbWU6ICJhcHBsZS1tb2JpbGUtd2ViLWFwcC1jYXBhYmxlIiwgY29udGVudDogInllcyIgfSwKICAgICAgeyBuYW1lOiAiYXBwbGUtbW9iaWxlLXdlYi1hcHAtc3RhdHVzLWJhci1zdHlsZSIsIGNvbnRlbnQ6ICJibGFjay10cmFuc2x1Y2VudCIgfSwKICAgICAgeyBuYW1lOiAiYXBwbGUtbW9iaWxlLXdlYi1hcHAtdGl0bGUiLCBjb250ZW50OiAiY2luYUF1dGgiIH0sCiAgICAgIHsgbmFtZTogIm1vYmlsZS13ZWItYXBwLWNhcGFibGUiLCBjb250ZW50OiAieWVzIiB9LAogICAgXSwKICAgIGxpbmtzOiBbCiAgICAgIHsKICAgICAgICByZWw6ICJzdHlsZXNoZWV0IiwKICAgICAgICBocmVmOiBhcHBDc3MsCiAgICAgIH0sCiAgICAgIHsgcmVsOiAicHJlY29ubmVjdCIsIGhyZWY6ICJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tIiB9LAogICAgICB7IHJlbDogInByZWNvbm5lY3QiLCBocmVmOiAiaHR0cHM6Ly9mb250cy5nc3RhdGljLmNvbSIsIGNyb3NzT3JpZ2luOiAiYW5vbnltb3VzIiB9LAogICAgICB7CiAgICAgICAgcmVsOiAic3R5bGVzaGVldCIsCiAgICAgICAgaHJlZjogImh0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzMj9mYW1pbHk9T3JiaXRyb246d2dodEA0MDA7NzAwOzkwMCZmYW1pbHk9SmV0QnJhaW5zK01vbm86d2dodEAzMDA7NDAwOzUwMDs3MDAmZmFtaWx5PVNwYWNlK0dyb3Rlc2s6d2dodEA0MDA7NTAwOzYwMDs3MDAmZGlzcGxheT1zd2FwIiwKICAgICAgfSwKICAgICAgeyByZWw6ICJpY29uIiwgaHJlZjogIi9mYXZpY29uLnBuZyIsIHR5cGU6ICJpbWFnZS9wbmciIH0sCiAgICAgIHsgcmVsOiAibWFuaWZlc3QiLCBocmVmOiAiL21hbmlmZXN0LndlYm1hbmlmZXN0IiB9LAogICAgICB7IHJlbDogImFwcGxlLXRvdWNoLWljb24iLCBocmVmOiAiL2ljb24tMTkyLnBuZyIgfSwKICAgIF0sCiAgfSksCiAgc2hlbGxDb21wb25lbnQ6IFJvb3RTaGVsbCwKICBjb21wb25lbnQ6IFJvb3RDb21wb25lbnQsCiAgbm90Rm91bmRDb21wb25lbnQ6IE5vdEZvdW5kQ29tcG9uZW50LAogIGVycm9yQ29tcG9uZW50OiBFcnJvckNvbXBvbmVudCwKfSk7CgpmdW5jdGlvbiBSb290U2hlbGwoeyBjaGlsZHJlbiB9OiB7IGNoaWxkcmVuOiBSZWFjdE5vZGUgfSkgewogIHJldHVybiAoCiAgICA8aHRtbCBsYW5nPSJlbiIgY2xhc3NOYW1lPSJkYXJrIj4KICAgICAgPGhlYWQ+CiAgICAgICAgPEhlYWRDb250ZW50IC8+CiAgICAgIDwvaGVhZD4KICAgICAgPGJvZHk+CiAgICAgICAge2NoaWxkcmVufQogICAgICAgIDxTY3JpcHRzIC8+CiAgICAgIDwvYm9keT4KICAgIDwvaHRtbD4KICApOwp9CgpmdW5jdGlvbiBSb290Q29tcG9uZW50KCkgewogIGNvbnN0IHsgcXVlcnlDbGllbnQgfSA9IFJvdXRlLnVzZVJvdXRlQ29udGV4dCgpOwogIGNvbnN0IHJvdXRlciA9IHVzZVJvdXRlcigpOwoKICB1c2VFZmZlY3QoKCkgPT4gewogICAgY29uc3QgeyBkYXRhOiB7IHN1YnNjcmlwdGlvbiB9IH0gPSBzdXBhYmFzZS5hdXRoLm9uQXV0aFN0YXRlQ2hhbmdlKChldmVudCkgPT4gewogICAgICBpZiAoZXZlbnQgIT09ICJTSUdORURfSU4iICYmIGV2ZW50ICE9PSAiU0lHTkVEX09VVCIgJiYgZXZlbnQgIT09ICJVU0VSX1VQREFURUQiKSByZXR1cm47CiAgICAgIHJvdXRlci5pbnZhbGlkYXRlKCk7CiAgICAgIGlmIChldmVudCAhPT0gIlNJR05FRF9PVVQiKSBxdWVyeUNsaWVudC5pbnZhbGlkYXRlUXVlcmllcygpOwogICAgfSk7CgogICAgcmV0dXJuICgpID0+IHN1YnNjcmlwdGlvbi51bnN1YnNjcmliZSgpOwogIH0sIFtxdWVyeUNsaWVudCwgcm91dGVyXSk7CgogIHJldHVybiAoCiAgICA8UXVlcnlDbGllbnRQcm92aWRlciBjbGllbnQ9e3F1ZXJ5Q2xpZW50fT4KICAgICAgPENhcnRQcm92aWRlcj4KICAgICAgICA8T3V0bGV0IC8+CiAgICAgICAgPFRvYXN0ZXIgLz4KICAgICAgPC9DYXJ0UHJvdmlkZXI+CiAgICA8L1F1ZXJ5Q2xpZW50UHJvdmlkZXI+CiAgKTsKfQo=
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  Outlet,
+  Link,
+  createRootRouteWithContext,
+  useRouter,
+  HeadContent,
+  Scripts,
+} from "@tanstack/react-router";
+import { useEffect, type ReactNode } from "react";
+
+import appCss from "../styles.css?url";
+import { reportLovableError } from "../lib/lovable-error-reporting";
+import { supabase } from "@/integrations/supabase/client";
+import { CartProvider } from "@/lib/cart";
+import { Toaster } from "@/components/ui/sonner";
+
+function NotFoundComponent() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-7xl font-bold text-foreground">404</h1>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <div className="mt-6">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Go home
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+  console.error(error);
+  const router = useRouter();
+  useEffect(() => {
+    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+  }, [error]);
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+          This page didn't load
+        </h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Something went wrong on our end. You can try refreshing or head back home.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Try again
+          </button>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            Go home
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "cinaAuth — Sell Digital Products" },
+      { name: "description", content: "The all-in-one platform to sell digital products. Create your store, upload products, and start selling in minutes." },
+      { name: "author", content: "cinaAuth" },
+      { property: "og:title", content: "cinaAuth — Sell Digital Products" },
+      { property: "og:description", content: "The all-in-one platform to sell digital products. Create your store, upload products, and start selling in minutes." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@cinaauth" },
+      { name: "theme-color", content: "#0b0b12" },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" },
+      { name: "apple-mobile-web-app-title", content: "cinaAuth" },
+      { name: "mobile-web-app-capable", content: "yes" },
+    ],
+    links: [
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap",
+      },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "manifest", href: "/manifest.webmanifest" },
+      { rel: "apple-touch-icon", href: "/icon-192.png" },
+    ],
+  }),
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+  errorComponent: ErrorComponent,
+});
+
+function RootShell({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en" className="dark">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+      if (event !== "SIGNED_IN" && event !== "SIGNED_OUT" && event !== "USER_UPDATED") return;
+      router.invalidate();
+      if (event !== "SIGNED_OUT") queryClient.invalidateQueries();
+    });
+
+    return () => subscription.unsubscribe();
+  }, [queryClient, router]);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <CartProvider>
+        <Outlet />
+        <Toaster />
+      </CartProvider>
+    </QueryClientProvider>
+  );
+}
