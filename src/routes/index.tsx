@@ -14,6 +14,7 @@ import {
 import { supabase } from "@/integrations/supabase/client";
 import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { getLandingStats } from "@/lib/landing.functions";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const landingStatsQuery = queryOptions({
   queryKey: ["landing-stats"],
@@ -129,56 +130,60 @@ function Hero() {
   return (
     <section className="relative px-4 pb-20 pt-14 sm:px-6 sm:pt-20">
       <div className="mx-auto max-w-6xl">
-        {/* Asymmetric rail */}
-        <div className="relative ml-2 border-l border-landing-accent/30 pl-6 sm:ml-6 sm:pl-10">
-          <div className="absolute -left-1 top-0 h-14 w-2 bg-landing-accent" />
+        <ScrollReveal>
+          {/* Asymmetric rail */}
+          <div className="relative ml-2 border-l border-landing-accent/30 pl-6 sm:ml-6 sm:pl-10">
+            <div className="absolute -left-1 top-0 h-14 w-2 bg-landing-accent" />
 
-          <p className="font-mono text-xs font-bold tracking-[0.2em] text-landing-accent">
-            [ INITIALIZING_COMMERCE_PROTOCOL ]
-          </p>
+            <p className="font-mono text-xs font-bold tracking-[0.2em] text-landing-accent">
+              [ INITIALIZING_COMMERCE_PROTOCOL ]
+            </p>
 
-          <h1 className="mt-6 font-[family-name:var(--font-display)] text-5xl font-black uppercase leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl">
-            Unleash
-            <br />
-            <span
-              style={{
-                WebkitTextStrokeWidth: "2px", WebkitTextStrokeColor: "#f97316",
-                color: "transparent",
-                paintOrder: "stroke fill",
-              }}
-            >
-              Digital
-            </span>
-            <br />
-            Empire
-          </h1>
+            <h1 className="mt-6 font-[family-name:var(--font-display)] text-5xl font-black uppercase leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl">
+              Unleash
+              <br />
+              <span
+                className="text-glitch"
+                data-text="Digital"
+                style={{
+                  WebkitTextStrokeWidth: "2px", WebkitTextStrokeColor: "#f97316",
+                  color: "transparent",
+                  paintOrder: "stroke fill",
+                }}
+              >
+                Digital
+              </span>
+              <br />
+              Empire
+            </h1>
 
-          <p className="mt-8 max-w-md text-sm leading-relaxed text-landing-muted sm:text-base">
-            High-performance infrastructure for digital goods. Instant delivery, zero friction, industrial security — your store live in minutes.
-          </p>
+            <p className="mt-8 max-w-md text-sm leading-relaxed text-landing-muted sm:text-base">
+              High-performance infrastructure for digital goods. Instant delivery, zero friction, industrial security — your store live in minutes.
+            </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Link
-              to="/onboarding"
-              className="group relative inline-flex items-center justify-center gap-2 bg-landing-accent px-8 py-4 font-mono text-sm font-bold uppercase tracking-widest text-landing-accent-foreground transition-colors hover:bg-landing-text hover:text-landing-bg"
-            >
-              Create free store
-              <ArrowRight className="h-4 w-4" />
-              <span className="absolute -bottom-1 -right-1 h-2 w-2 bg-landing-text group-hover:bg-landing-accent" />
-            </Link>
-            <Link
-              to="/$storeSlug"
-              params={{ storeSlug: "demo-cinaauth" }}
-              className="inline-flex items-center justify-center border border-landing-border px-8 py-4 font-mono text-sm font-bold uppercase tracking-widest text-landing-text transition-colors hover:border-landing-accent"
-            >
-              View demo store
-            </Link>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Link
+                to="/onboarding"
+                className="group relative inline-flex items-center justify-center gap-2 bg-landing-accent px-8 py-4 font-mono text-sm font-bold uppercase tracking-widest text-landing-accent-foreground transition-colors hover:bg-landing-text hover:text-landing-bg glow-border-hover"
+              >
+                Create free store
+                <ArrowRight className="h-4 w-4" />
+                <span className="absolute -bottom-1 -right-1 h-2 w-2 bg-landing-text group-hover:bg-landing-accent" />
+              </Link>
+              <Link
+                to="/$storeSlug"
+                params={{ storeSlug: "demo-cinaauth" }}
+                className="inline-flex items-center justify-center border border-landing-border px-8 py-4 font-mono text-sm font-bold uppercase tracking-widest text-landing-text transition-colors hover:border-landing-accent glow-border-hover"
+              >
+                View demo store
+              </Link>
+            </div>
+
+            <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.3em] text-landing-muted/70">
+              No credit card required // Free to start
+            </p>
           </div>
-
-          <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.3em] text-landing-muted/70">
-            No credit card required // Free to start
-          </p>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -196,7 +201,7 @@ function DashboardPreview() {
   return (
     <section id="dashboard" className="px-4 pb-24 sm:px-6">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-10 ml-2 border-l-4 border-landing-accent pl-4 sm:ml-6 sm:pl-6">
+        <ScrollReveal className="mb-10 ml-2 border-l-4 border-landing-accent pl-4 sm:ml-6 sm:pl-6">
           <p className="font-mono text-xs font-bold tracking-[0.2em] text-landing-accent">[ LIVE_TELEMETRY ]</p>
           <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-black uppercase tracking-tight sm:text-4xl">
             Command center
@@ -204,9 +209,10 @@ function DashboardPreview() {
           <p className="mt-3 max-w-xl text-sm text-landing-muted">
             Revenue, orders and customers in real time — this is what running your store looks like.
           </p>
-        </div>
+        </ScrollReveal>
 
-        <div className="relative border-2 border-landing-accent bg-landing-card p-2">
+        <ScrollReveal>
+          <div className="relative border-2 border-landing-accent bg-landing-card p-2 glow-border-hover scanline">
           <div className="absolute -top-3 right-4 z-10 bg-landing-accent px-2 font-mono text-[10px] font-bold uppercase text-landing-accent-foreground">
             Live_preview
           </div>
@@ -281,6 +287,7 @@ function DashboardPreview() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -301,23 +308,27 @@ function Features() {
   return (
     <section id="features" className="px-4 pb-24 sm:px-6">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-10 ml-2 border-l-4 border-landing-accent pl-4 font-[family-name:var(--font-display)] text-3xl font-black uppercase tracking-tight sm:ml-6 sm:pl-6 sm:text-4xl">
-          Protocol specs
-        </h2>
+        <ScrollReveal className="mb-10 ml-2 border-l-4 border-landing-accent pl-4 sm:ml-6 sm:pl-6">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl font-black uppercase tracking-tight sm:text-4xl">
+            Protocol specs
+          </h2>
+        </ScrollReveal>
 
         <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f, i) => (
-            <div key={f.title} className="group">
-              <div className="mb-2 flex items-center gap-3">
-                <f.icon className="h-4 w-4 text-landing-accent" />
-                <span className="font-mono text-sm font-bold text-landing-accent">
-                  {String(i + 1).padStart(2, "0")}. {f.title}
-                </span>
+            <ScrollReveal key={f.title} delay={i * 80}>
+              <div className="group h-full border border-landing-border bg-landing-surface/30 p-5 transition-colors hover:bg-landing-surface card-hover-lift glow-border-hover">
+                <div className="mb-2 flex items-center gap-3">
+                  <f.icon className="h-4 w-4 text-landing-accent" />
+                  <span className="font-mono text-sm font-bold text-landing-accent">
+                    {String(i + 1).padStart(2, "0")}. {f.title}
+                  </span>
+                </div>
+                <p className="border-t border-landing-accent/10 pt-3 text-sm leading-relaxed text-landing-muted">
+                  {f.description}
+                </p>
               </div>
-              <p className="border-t border-landing-accent/10 pt-3 text-sm leading-relaxed text-landing-muted">
-                {f.description}
-              </p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
@@ -350,57 +361,63 @@ function Pricing() {
   return (
     <section id="pricing" className="px-4 pb-24 sm:px-6">
       <div className="mx-auto max-w-4xl">
-        <h2 className="mb-12 text-center font-[family-name:var(--font-display)] text-3xl font-black uppercase tracking-tighter sm:text-4xl">
-          Licensing
-        </h2>
+        <ScrollReveal className="mb-12 text-center">
+          <h2 className="font-[family-name:var(--font-display)] text-3xl font-black uppercase tracking-tighter sm:text-4xl">
+            Licensing
+          </h2>
+        </ScrollReveal>
         <div className="grid gap-6 sm:grid-cols-2">
-          {plans.map((plan) =>
+          {plans.map((plan, i) =>
             plan.highlight ? (
-              <div key={plan.name} className="relative bg-landing-accent p-7 text-landing-accent-foreground">
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-landing-text px-3 py-0.5 font-mono text-[10px] font-bold uppercase text-landing-bg">
-                  Recommended
-                </span>
-                <h3 className="font-[family-name:var(--font-display)] text-lg font-bold">{plan.name}</h3>
-                <div className="mt-3 flex items-baseline gap-1">
-                  <span className="text-4xl font-black">{plan.price}</span>
-                  <span className="text-sm opacity-60">{plan.period}</span>
+              <ScrollReveal key={plan.name} delay={i * 120}>
+                <div className="relative h-full bg-landing-accent p-7 text-landing-accent-foreground card-hover-lift">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-landing-text px-3 py-0.5 font-mono text-[10px] font-bold uppercase text-landing-bg">
+                    Recommended
+                  </span>
+                  <h3 className="font-[family-name:var(--font-display)] text-lg font-bold">{plan.name}</h3>
+                  <div className="mt-3 flex items-baseline gap-1">
+                    <span className="text-4xl font-black">{plan.price}</span>
+                    <span className="text-sm opacity-60">{plan.period}</span>
+                  </div>
+                  <ul className="mt-6 space-y-2.5">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-xs font-bold">
+                        <span className="font-mono">+</span> {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/onboarding"
+                    className="mt-7 block bg-landing-bg py-3 text-center font-mono text-xs font-bold uppercase tracking-widest text-landing-accent transition-colors hover:bg-landing-text hover:text-landing-bg glow-border-hover"
+                  >
+                    {plan.cta}
+                  </Link>
                 </div>
-                <ul className="mt-6 space-y-2.5">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-xs font-bold">
-                      <span className="font-mono">+</span> {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/onboarding"
-                  className="mt-7 block bg-landing-bg py-3 text-center font-mono text-xs font-bold uppercase tracking-widest text-landing-accent transition-colors hover:bg-landing-text hover:text-landing-bg"
-                >
-                  {plan.cta}
-                </Link>
-              </div>
+              </ScrollReveal>
             ) : (
-              <div key={plan.name} className="relative border border-landing-accent/30 p-7">
-                <div className="absolute left-0 top-0 h-4 w-4 border-l-2 border-t-2 border-landing-accent" />
-                <h3 className="font-[family-name:var(--font-display)] text-lg font-bold">{plan.name}</h3>
-                <div className="mt-3 flex items-baseline gap-1">
-                  <span className="text-4xl font-black">{plan.price}</span>
-                  <span className="text-sm text-landing-muted">{plan.period}</span>
+              <ScrollReveal key={plan.name} delay={i * 120}>
+                <div className="relative h-full border border-landing-accent/30 bg-landing-surface/30 p-7 card-hover-lift glow-border-hover">
+                  <div className="absolute left-0 top-0 h-4 w-4 border-l-2 border-t-2 border-landing-accent" />
+                  <h3 className="font-[family-name:var(--font-display)] text-lg font-bold">{plan.name}</h3>
+                  <div className="mt-3 flex items-baseline gap-1">
+                    <span className="text-4xl font-black">{plan.price}</span>
+                    <span className="text-sm text-landing-muted">{plan.period}</span>
+                  </div>
+                  <ul className="mt-6 space-y-2.5">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-xs text-landing-muted">
+                        <span className="font-mono text-landing-accent">-</span> {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/onboarding"
+                    className="mt-7 block border border-landing-text py-3 text-center font-mono text-xs font-bold uppercase tracking-widest transition-colors hover:bg-landing-text hover:text-landing-bg glow-border-hover"
+                  >
+                    {plan.cta}
+                  </Link>
                 </div>
-                <ul className="mt-6 space-y-2.5">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-xs text-landing-muted">
-                      <span className="font-mono text-landing-accent">-</span> {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  to="/onboarding"
-                  className="mt-7 block border border-landing-text py-3 text-center font-mono text-xs font-bold uppercase tracking-widest transition-colors hover:bg-landing-text hover:text-landing-bg"
-                >
-                  {plan.cta}
-                </Link>
-              </div>
+              </ScrollReveal>
             ),
           )}
         </div>
@@ -424,20 +441,24 @@ function Faq() {
   return (
     <section id="faq" className="px-4 pb-24 sm:px-6">
       <div className="mx-auto max-w-3xl">
-        <h2 className="mb-10 flex items-center gap-4 font-[family-name:var(--font-display)] text-2xl font-black uppercase tracking-widest">
-          <span className="h-px flex-1 bg-landing-accent/30" />
-          FAQ
-          <span className="h-px flex-1 bg-landing-accent/30" />
-        </h2>
+        <ScrollReveal className="mb-10">
+          <h2 className="flex items-center gap-4 font-[family-name:var(--font-display)] text-2xl font-black uppercase tracking-widest">
+            <span className="h-px flex-1 bg-landing-accent/30" />
+            FAQ
+            <span className="h-px flex-1 bg-landing-accent/30" />
+          </h2>
+        </ScrollReveal>
         <div className="space-y-2">
-          {faqs.map((f) => (
-            <details key={f.q} className="group border-b border-landing-border py-4">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-landing-accent [&::-webkit-details-marker]:hidden">
-                <span className="font-mono">// {f.q}</span>
-                <ChevronDown className="h-4 w-4 shrink-0 text-landing-muted transition-transform group-open:rotate-180" />
-              </summary>
-              <p className="mt-3 pl-4 text-sm leading-relaxed text-landing-muted">{f.a}</p>
-            </details>
+          {faqs.map((f, i) => (
+            <ScrollReveal key={f.q} delay={i * 60}>
+              <details className="group border-b border-landing-border py-4 glow-border-hover">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-bold text-landing-accent [&::-webkit-details-marker]:hidden">
+                  <span className="font-mono">// {f.q}</span>
+                  <ChevronDown className="h-4 w-4 shrink-0 text-landing-muted transition-transform group-open:rotate-180" />
+                </summary>
+                <p className="mt-3 pl-4 text-sm leading-relaxed text-landing-muted">{f.a}</p>
+              </details>
+            </ScrollReveal>
           ))}
         </div>
       </div>
@@ -451,31 +472,34 @@ function FinalCta() {
   return (
     <section className="relative px-4 pb-28 sm:px-6">
       <div className="mx-auto max-w-6xl">
-        <div className="relative border-2 border-landing-accent p-8 sm:p-14">
-          <div className="absolute -left-px -top-px h-6 w-6 border-l-4 border-t-4 border-landing-accent" />
-          <div className="absolute -bottom-px -right-px h-6 w-6 border-b-4 border-r-4 border-landing-accent" />
-          <p className="font-mono text-xs font-bold tracking-[0.2em] text-landing-accent">[ DEPLOY_YOUR_STORE ]</p>
-          <h2 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-6xl">
-            The new era of{" "}
-            <span
-              className="text-transparent"
-              style={{ WebkitTextStrokeWidth: "1.5px", WebkitTextStrokeColor: "#f97316" }}
+        <ScrollReveal>
+          <div className="relative border-2 border-landing-accent p-8 sm:p-14 glow-border-hover scanline">
+            <div className="absolute -left-px -top-px h-6 w-6 border-l-4 border-t-4 border-landing-accent" />
+            <div className="absolute -bottom-px -right-px h-6 w-6 border-b-4 border-r-4 border-landing-accent" />
+            <p className="font-mono text-xs font-bold tracking-[0.2em] text-landing-accent">[ DEPLOY_YOUR_STORE ]</p>
+            <h2 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-6xl">
+              The new era of{" "}
+              <span
+                className="text-glitch text-transparent"
+                data-text="digital commerce"
+                style={{ WebkitTextStrokeWidth: "1.5px", WebkitTextStrokeColor: "#f97316" }}
+              >
+                digital commerce
+              </span>
+            </h2>
+            <p className="mt-5 max-w-lg text-sm text-landing-muted">
+              Join creators selling templates, courses, art, software and more on cinaAuth.
+            </p>
+            <Link
+              to="/onboarding"
+              className="group relative mt-9 inline-flex items-center gap-2 bg-landing-accent px-10 py-4 font-mono text-sm font-bold uppercase tracking-widest text-landing-accent-foreground transition-colors hover:bg-landing-text hover:text-landing-bg glow-border-hover"
             >
-              digital commerce
-            </span>
-          </h2>
-          <p className="mt-5 max-w-lg text-sm text-landing-muted">
-            Join creators selling templates, courses, art, software and more on cinaAuth.
-          </p>
-          <Link
-            to="/onboarding"
-            className="group relative mt-9 inline-flex items-center gap-2 bg-landing-accent px-10 py-4 font-mono text-sm font-bold uppercase tracking-widest text-landing-accent-foreground transition-colors hover:bg-landing-text hover:text-landing-bg"
-          >
-            Create your store — free
-            <ArrowRight className="h-4 w-4" />
-            <span className="absolute -bottom-1 -right-1 h-2 w-2 bg-landing-text group-hover:bg-landing-accent" />
-          </Link>
-        </div>
+              Create your store — free
+              <ArrowRight className="h-4 w-4" />
+              <span className="absolute -bottom-1 -right-1 h-2 w-2 bg-landing-text group-hover:bg-landing-accent" />
+            </Link>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -509,9 +533,18 @@ function Footer() {
                 <ul className="mt-4 space-y-2.5">
                   {col.links.map((l) => (
                     <li key={l}>
-                      <a href="#" className="text-sm text-landing-muted transition-colors hover:text-landing-text">
-                        {l}
-                      </a>
+                      {l === "Changelog" ? (
+                        <Link
+                          to="/changelog"
+                          className="text-sm text-landing-muted transition-colors hover:text-landing-text"
+                        >
+                          {l}
+                        </Link>
+                      ) : (
+                        <a href="#" className="text-sm text-landing-muted transition-colors hover:text-landing-text">
+                          {l}
+                        </a>
+                      )}
                     </li>
                   ))}
                 </ul>

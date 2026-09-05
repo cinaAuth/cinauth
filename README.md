@@ -89,6 +89,7 @@ npm run format   # Prettier
 | Ruta | Descripción |
 |------|-------------|
 | `/` | Landing pública |
+| `/changelog` | Registro público de cambios |
 | `/auth` | Registro / login |
 | `/onboarding` | Asistente de creación de tienda |
 | `/dashboard` | Panel del vendedor |
@@ -105,6 +106,10 @@ npm run format   # Prettier
 - Tienda demo: `/demo-cinaauth`
 - Vendedor demo: `demo.vendedor@cinaauth.app` / `CinaAuth!Demo2026`
 - Pedido verificado de ejemplo: `DFEA5D0F5B`
+
+## Changelog
+
+Todos los cambios de la plataforma se documentan en [`CHANGELOG.md`](CHANGELOG.md) y son visibles públicamente en la ruta `/changelog` de la web.
 
 ## Roadmap
 

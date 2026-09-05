@@ -175,7 +175,7 @@ function ProductPage() {
           Back to {store.name}
         </Link>
 
-        <div className="mt-8 rounded-3xl border border-border bg-card p-8 sm:p-12">
+        <div className="mt-8 rounded-3xl border border-border bg-card p-8 sm:p-12 glow-border-hover transition-all">
           <div className="flex items-start justify-between">
             <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
               <ShoppingBag className="h-7 w-7" />
@@ -301,7 +301,7 @@ function ProductPage() {
                   key={String(p.id)}
                   to="/$storeSlug/$productSlug"
                   params={{ storeSlug: store.slug, productSlug: String(p.slug) }}
-                  className="group rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/30"
+                  className="group rounded-2xl border border-border bg-card p-5 transition-all card-hover-lift glow-border-hover hover:border-primary/30"
                 >
                   <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
                     <ShoppingBag className="h-4 w-4" />

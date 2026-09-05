@@ -171,7 +171,7 @@ function StorePage() {
             {products.map((product: CatalogProduct) => (
               <div
                 key={product.id}
-                className="group relative flex flex-col rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/30"
+                className="group relative flex flex-col rounded-2xl border border-border bg-card p-6 transition-all card-hover-lift glow-border-hover hover:border-primary/30"
               >
                 <button
                   onClick={() => onToggleWish(product.id)}

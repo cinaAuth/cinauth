@@ -63,7 +63,7 @@ function SectionCard({
   action?: React.ReactNode;
 }) {
   return (
-    <Card className="rounded-none border-primary/20 bg-card/80 transition-shadow hover:glow-border-primary">
+    <Card className="rounded-none border-primary/20 bg-card/80 transition-all card-hover-lift glow-border-hover hover:glow-border-primary">
       <CardHeader className="flex-row items-center justify-between space-y-0 border-b border-primary/15 py-4">
         <CardTitle className="flex items-center gap-2 font-display text-[11px] font-semibold uppercase tracking-[0.25em] text-primary">
           <Icon className="h-4 w-4" /> {title}
@@ -101,7 +101,7 @@ function StatCard({
   sub?: string;
 }) {
   return (
-    <Card className="rounded-none border-primary/20 bg-card/80 transition-shadow hover:glow-border-primary">
+    <Card className="rounded-none border-primary/20 bg-card/80 transition-all card-hover-lift glow-border-hover hover:glow-border-primary">
       <CardContent className="p-5">
         <div className="flex items-start justify-between">
           <div>
@@ -134,7 +134,7 @@ function StatChart({
   formatValue: (n: number) => string;
 }) {
   return (
-    <Card className="rounded-none border-primary/20 bg-card/80 transition-shadow hover:glow-border-primary">
+    <Card className="rounded-none border-primary/20 bg-card/80 transition-all card-hover-lift glow-border-hover hover:glow-border-primary">
       <CardHeader className="border-b border-primary/15 py-4">
         <CardTitle className="flex items-center gap-2 font-display text-[11px] font-semibold uppercase tracking-[0.25em] text-primary">
           <Icon className="h-4 w-4" /> {title}

@@ -14,6 +14,7 @@ import { Route as StoreSlugRouteImport } from './routes/$storeSlug'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CartRouteImport } from './routes/cart'
+import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as MfaRouteImport } from './routes/mfa'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
@@ -53,6 +54,11 @@ const AuthRoute = AuthRouteImport.update({
 const CartRoute = CartRouteImport.update({
   id: '/cart',
   path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChangelogRoute = ChangelogRouteImport.update({
+  id: '/changelog',
+  path: '/changelog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CheckoutRoute = CheckoutRouteImport.update({
@@ -142,6 +148,7 @@ export interface FileRoutesByFullPath {
   '/$storeSlug': typeof StoreSlugRouteWithChildren
   '/auth': typeof AuthRoute
   '/cart': typeof CartRoute
+  '/changelog': typeof ChangelogRoute
   '/checkout': typeof CheckoutRoute
   '/mfa': typeof MfaRoute
   '/onboarding': typeof OnboardingRoute
@@ -163,6 +170,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/cart': typeof CartRoute
+  '/changelog': typeof ChangelogRoute
   '/checkout': typeof CheckoutRoute
   '/mfa': typeof MfaRoute
   '/onboarding': typeof OnboardingRoute
@@ -186,6 +194,7 @@ export interface FileRoutesById {
   '/$storeSlug': typeof StoreSlugRouteWithChildren
   '/auth': typeof AuthRoute
   '/cart': typeof CartRoute
+  '/changelog': typeof ChangelogRoute
   '/checkout': typeof CheckoutRoute
   '/mfa': typeof MfaRoute
   '/onboarding': typeof OnboardingRoute
@@ -210,6 +219,7 @@ export interface FileRouteTypes {
     | '/$storeSlug'
     | '/auth'
     | '/cart'
+    | '/changelog'
     | '/checkout'
     | '/mfa'
     | '/onboarding'
@@ -231,6 +241,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/cart'
+    | '/changelog'
     | '/checkout'
     | '/mfa'
     | '/onboarding'
@@ -253,6 +264,7 @@ export interface FileRouteTypes {
     | '/$storeSlug'
     | '/auth'
     | '/cart'
+    | '/changelog'
     | '/checkout'
     | '/mfa'
     | '/onboarding'
@@ -277,6 +289,7 @@ export interface RootRouteChildren {
   StoreSlugRoute: typeof StoreSlugRouteWithChildren
   AuthRoute: typeof AuthRoute
   CartRoute: typeof CartRoute
+  ChangelogRoute: typeof ChangelogRoute
   CheckoutRoute: typeof CheckoutRoute
   MfaRoute: typeof MfaRoute
   OnboardingRoute: typeof OnboardingRoute
@@ -320,6 +333,13 @@ declare module '@tanstack/react-router' {
       path: '/cart'
       fullPath: '/cart'
       preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/changelog': {
+      id: '/changelog'
+      path: '/changelog'
+      fullPath: '/changelog'
+      preLoaderRoute: typeof ChangelogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/checkout': {
@@ -491,6 +511,7 @@ const rootRouteChildren: RootRouteChildren = {
   StoreSlugRoute: StoreSlugRouteWithChildren,
   AuthRoute: AuthRoute,
   CartRoute: CartRoute,
+  ChangelogRoute: ChangelogRoute,
   CheckoutRoute: CheckoutRoute,
   MfaRoute: MfaRoute,
   OnboardingRoute: OnboardingRoute,

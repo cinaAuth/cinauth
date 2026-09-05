@@ -156,6 +156,76 @@
   box-shadow: 0 0 24px oklch(0.72 0.19 55 / 25%);
 }
 
+@utility glow-border-hover {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  &:hover {
+    box-shadow: 0 0 28px oklch(0.72 0.19 55 / 35%);
+    border-color: oklch(0.72 0.19 55 / 70%);
+  }
+}
+
+@utility card-hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 32px oklch(0.72 0.19 55 / 28%);
+  }
+}
+
+@utility text-glitch {
+  position: relative;
+  &:before,
+  &:after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+  &:hover:before {
+    color: oklch(0.7 0.2 25);
+    opacity: 0.8;
+    animation: glitch-shift 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  }
+  &:hover:after {
+    color: oklch(0.78 0.14 195);
+    opacity: 0.8;
+    animation: glitch-shift 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) both reverse;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  }
+}
+
+@utility scanline {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 2px,
+      oklch(0.72 0.19 55 / 4%) 2px,
+      oklch(0.72 0.19 55 / 4%) 4px
+    );
+    pointer-events: none;
+    animation: scanline 8s linear infinite;
+  }
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+@utility reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 @keyframes rgb-flicker {
   0%, 100% {
     text-shadow:
@@ -201,6 +271,20 @@
 
 @utility animate-rgb-flicker {
   animation: rgb-flicker 4s linear infinite;
+}
+
+@keyframes glitch-shift {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 2px); }
+  40% { transform: translate(3px, -2px); }
+  60% { transform: translate(-2px, 1px); }
+  80% { transform: translate(2px, -1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
 
 @layer base {
