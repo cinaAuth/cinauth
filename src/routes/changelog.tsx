@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { useI18n } from "@/lib/i18n";
+import { changelogT, type ChangelogKey } from "@/lib/i18n-changelog";
 
 export const Route = createFileRoute("/changelog")({
   head: () => ({
@@ -17,93 +19,79 @@ export const Route = createFileRoute("/changelog")({
   component: ChangelogPage,
 });
 
-type Entry = { text: string; bold?: string };
-type Release = {
-  date: string;
-  label: string;
-  category: string;
-  title: string;
-  entries: Entry[];
+type EntryKeys = { lead: ChangelogKey; rest: ChangelogKey };
+type ReleaseMeta = {
+  iso: string;
+  title: ChangelogKey;
+  entries: EntryKeys[];
 };
 
-const RELEASES: Release[] = [
+const RELEASES: ReleaseMeta[] = [
   {
-    date: "September 5, 2026",
-    label: "2026-09-05-c",
-    category: "Features",
-    title: "Languages, Payments & Email Alerts",
+    iso: "2026-09-05",
+    title: "r4.title",
     entries: [
-      { text: "Full site translated into 24 languages, including landing, panel, console and specs.", bold: "24 languages" },
-      { text: "New payment methods: Apple/Google Pay, PayPal, Klarna, SEPA, Bizum, Revolut and crypto, configurable per store.", bold: "New payment methods" },
-      { text: "Invoice-style checkout with order summary and payment steps, plus a customer account area.", bold: "Invoice-style checkout" },
-      { text: "Platform subscription plans (Core, Signal, Empire) with Stripe Embedded Checkout.", bold: "subscription plans" },
-      { text: "\"New login detected\" email alert on every sign-in, sent from notify.cinauth.com.", bold: "New login detected" },
-      { text: "Codebase synced to GitHub with a refreshed cyber-style README.", bold: "synced to GitHub" },
+      { lead: "r4.e1.lead", rest: "r4.e1.rest" },
+      { lead: "r4.e2.lead", rest: "r4.e2.rest" },
+      { lead: "r4.e3.lead", rest: "r4.e3.rest" },
+      { lead: "r4.e4.lead", rest: "r4.e4.rest" },
+      { lead: "r4.e5.lead", rest: "r4.e5.rest" },
+      { lead: "r4.e6.lead", rest: "r4.e6.rest" },
+      { lead: "r4.e7.lead", rest: "r4.e7.rest" },
     ],
   },
   {
-    date: "September 5, 2026",
-    label: "2026-09-05",
-    category: "Features",
-    title: "Customizable Panel & Direct Onboarding",
+    iso: "2026-09-05",
+    title: "r3.title",
     entries: [
-      { text: "Light/dark mode and a 6-color accent palette now work across the entire site.", bold: "Light/dark mode" },
-      { text: "Real notification center with an unread counter and mark-all-as-read.", bold: "Real notification center" },
-      { text: "Panel header with a compact logo and quick access to notifications, theme and changelog.", bold: "Panel header" },
-      { text: "All glows and accents now sync with the color chosen in the palette.", bold: "All glows and accents" },
-      { text: "If you already have a store, onboarding takes you straight to the dashboard.", bold: "onboarding" },
-      { text: "Seasonal ambient effects (snow, petals, leaves) and automatic seasonal accent themes.", bold: "Seasonal ambient effects" },
+      { lead: "r3.e1.lead", rest: "r3.e1.rest" },
+      { lead: "r3.e2.lead", rest: "r3.e2.rest" },
+      { lead: "r3.e3.lead", rest: "r3.e3.rest" },
+      { lead: "r3.e4.lead", rest: "r3.e4.rest" },
+      { lead: "r3.e5.lead", rest: "r3.e5.rest" },
+      { lead: "r3.e6.lead", rest: "r3.e6.rest" },
     ],
   },
   {
-    date: "September 5, 2026",
-    label: "2026-09-05-b",
-    category: "Features",
-    title: "Cyber Effects & New Homepage",
+    iso: "2026-09-05",
+    title: "r2.title",
     entries: [
-      { text: "Floating back-to-top button available across the whole site.", bold: "back-to-top button" },
-      { text: "Visual effects: neon border glow, card lift on hover, scroll reveals and cyber glitch.", bold: "Visual effects" },
-      { text: "Asymmetric landing page with a dashboard preview connected to real data.", bold: "Asymmetric landing page" },
-      { text: "New cinaAuth logo with transparent background, applied to the panel and favicon.", bold: "New cinaAuth logo" },
-      { text: "Site unified under the cyber theme: black background, orange accent, Orbitron + JetBrains Mono.", bold: "cyber theme" },
-      { text: "The panel now shows the store owner's name on the profile card.", bold: "store owner's name" },
-      { text: "Duplicate store slugs now generate a free variant automatically.", bold: "Duplicate store slugs" },
-      { text: "Fixed a notifications field error.", bold: "Fixed" },
+      { lead: "r2.e1.lead", rest: "r2.e1.rest" },
+      { lead: "r2.e2.lead", rest: "r2.e2.rest" },
+      { lead: "r2.e3.lead", rest: "r2.e3.rest" },
+      { lead: "r2.e4.lead", rest: "r2.e4.rest" },
+      { lead: "r2.e5.lead", rest: "r2.e5.rest" },
+      { lead: "r2.e6.lead", rest: "r2.e6.rest" },
+      { lead: "r2.e7.lead", rest: "r2.e7.rest" },
+      { lead: "r2.e8.lead", rest: "r2.e8.rest" },
     ],
   },
   {
-    date: "September 4, 2026",
-    label: "2026-09-04",
-    category: "Features",
-    title: "Platform Launch",
+    iso: "2026-09-04",
+    title: "r1.title",
     entries: [
-      { text: "Public marketplace: search, categories, verified reviews, wishlist and recommendations.", bold: "Public marketplace" },
-      { text: "Persistent cart and Stripe checkout with one-time payments and subscriptions.", bold: "Stripe checkout" },
-      { text: "Subscriptions with sign-up, cancellation, upgrade and downgrade.", bold: "Subscriptions" },
-      { text: "Full seller panel with 11 sections and real-time metrics.", bold: "Full seller panel" },
-      { text: "3-step onboarding: Account, Shop and Launch.", bold: "3-step onboarding" },
-      { text: "Sign in with email, Google OAuth and optional 2FA (TOTP).", bold: "Google OAuth" },
-      { text: "Staff roles (admin, moderator, user) with an admin console.", bold: "Staff roles" },
-      { text: "Traffic analytics: visits, sessions, sources, devices and countries.", bold: "Traffic analytics" },
-      { text: "Store subdomains on *.cinaauth.com.", bold: "Store subdomains" },
+      { lead: "r1.e1.lead", rest: "r1.e1.rest" },
+      { lead: "r1.e2.lead", rest: "r1.e2.rest" },
+      { lead: "r1.e3.lead", rest: "r1.e3.rest" },
+      { lead: "r1.e4.lead", rest: "r1.e4.rest" },
+      { lead: "r1.e5.lead", rest: "r1.e5.rest" },
+      { lead: "r1.e6.lead", rest: "r1.e6.rest" },
+      { lead: "r1.e7.lead", rest: "r1.e7.rest" },
+      { lead: "r1.e8.lead", rest: "r1.e8.rest" },
+      { lead: "r1.e9.lead", rest: "r1.e9.rest" },
     ],
   },
 ];
 
-function EntryText({ entry }: { entry: Entry }) {
-  if (!entry.bold) return <>{entry.text}</>;
-  const idx = entry.text.indexOf(entry.bold);
-  if (idx === -1) return <>{entry.text}</>;
-  return (
-    <>
-      {entry.text.slice(0, idx)}
-      <strong className="font-semibold text-foreground">{entry.bold}</strong>
-      {entry.text.slice(idx + entry.bold.length)}
-    </>
-  );
-}
-
 function ChangelogPage() {
+  const { lang } = useI18n();
+  const t = changelogT(lang);
+  const dateFmt = new Intl.DateTimeFormat(lang, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="px-5 py-6 sm:px-8">
@@ -115,41 +103,42 @@ function ChangelogPage() {
             to="/"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ArrowLeft className="h-4 w-4" /> Back
+            <ArrowLeft className="h-4 w-4" /> {t("back")}
           </Link>
         </div>
       </header>
 
       <main className="mx-auto max-w-3xl px-5 pb-20 pt-10 sm:px-8">
-        <h1 className="text-4xl font-bold tracking-tight">Changelog</h1>
-        <p className="mt-3 text-lg text-muted-foreground">
-          Latest updates, improvements, and fixes to cinaAuth.
-        </p>
+        <h1 className="text-4xl font-bold tracking-tight">{t("title")}</h1>
+        <p className="mt-3 text-lg text-muted-foreground">{t("subtitle")}</p>
 
         <div className="mt-12">
           {RELEASES.map((release, ri) => (
-            <ScrollReveal key={release.label} delay={ri * 100}>
+            <ScrollReveal key={release.title} delay={ri * 100}>
               <section className="relative border-l border-border py-2 pl-8 sm:pl-10">
                 {/* Timeline dot */}
                 <span className="absolute -left-[7.5px] top-4 h-[15px] w-[15px] rounded-full border-2 border-primary bg-background" />
 
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="inline-flex items-center rounded-full border border-primary/60 px-3 py-1 text-sm text-primary">
-                    {release.category}
+                    {t("category")}
                   </span>
-                  <time className="text-sm text-muted-foreground">{release.date}</time>
+                  <time className="text-sm text-muted-foreground">
+                    {dateFmt.format(new Date(`${release.iso}T12:00:00Z`))}
+                  </time>
                 </div>
 
                 <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
-                  {release.title}
+                  {t(release.title)}
                 </h2>
 
                 <ul className="mt-6 space-y-4">
                   {release.entries.map((entry) => (
-                    <li key={entry.text} className="flex items-start gap-3">
+                    <li key={entry.lead} className="flex items-start gap-3">
                       <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground" />
                       <span className="text-[15px] leading-relaxed text-muted-foreground">
-                        <EntryText entry={entry} />
+                        <strong className="font-semibold text-foreground">{t(entry.lead)}</strong>
+                        {t(entry.rest)}
                       </span>
                     </li>
                   ))}
@@ -160,7 +149,7 @@ function ChangelogPage() {
         </div>
 
         <p className="mt-14 border-t border-border pt-6 text-xs text-muted-foreground">
-          © {new Date().getFullYear()} cinaAuth — End of log
+          © {new Date().getFullYear()} cinaAuth — {t("end")}
         </p>
       </main>
     </div>
