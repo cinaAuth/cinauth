@@ -1,0 +1,1 @@
+DROP VIEW IF EXISTS public.store_payment_methods_public;

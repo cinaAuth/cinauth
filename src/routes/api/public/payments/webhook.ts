@@ -59,9 +59,30 @@ async function upsertSubscription(subscription: any, env: StripeEnv) {
     storeId = (order as { store_id?: string } | null)?.store_id ?? null;
   }
 
+  // Platform plan (a seller subscribing to cinaAuth itself): resolve the
+  // seller's own store and email instead of an order.
+  if (!orderId && metadata.platformPlan === "true" && metadata.userId) {
+    const { data: store } = await supabase
+      .from("stores")
+      .select("id")
+      .eq("user_id", metadata.userId)
+      .maybeSingle();
+    storeId = (store as { id?: string } | null)?.id ?? null;
+    const { data: authUser } = await (supabase as any).auth.admin.getUserById(metadata.userId);
+    buyerEmail = authUser?.user?.email ?? null;
+  }
+
   const item = subscription?.items?.data?.[0];
   const periodStart = item?.current_period_start ?? subscription?.current_period_start;
   const periodEnd = item?.current_period_end ?? subscription?.current_period_end;
+  const priceId =
+    item?.price?.lookup_key ??
+    item?.price?.metadata?.lovable_external_id ??
+    metadata.planPriceId ??
+    item?.price?.id ??
+    "unknown";
+
+  if (!storeId || !buyerEmail) return;
 
   await (supabase as any).from("subscriptions").upsert(
     {
@@ -71,7 +92,7 @@ async function upsertSubscription(subscription: any, env: StripeEnv) {
       stripe_subscription_id: subscription.id,
       stripe_customer_id: subscription.customer,
       product_id: item?.price?.product ?? "unknown",
-      price_id: item?.price?.id ?? "unknown",
+      price_id: priceId,
       status: subscription.status,
       current_period_start: periodStart ? new Date(periodStart * 1000).toISOString() : null,
       current_period_end: periodEnd ? new Date(periodEnd * 1000).toISOString() : null,

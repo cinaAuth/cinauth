@@ -401,6 +401,73 @@ export type Database = {
           },
         ]
       }
+      store_payment_methods: {
+        Row: {
+          config: Json
+          created_at: string
+          enabled: boolean
+          id: string
+          method_key: string
+          store_id: string
+          updated_at: string
+        }
+        Insert: {
+          config?: Json
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          method_key: string
+          store_id: string
+          updated_at?: string
+        }
+        Update: {
+          config?: Json
+          created_at?: string
+          enabled?: boolean
+          id?: string
+          method_key?: string
+          store_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "store_payment_methods_store_id_fkey"
+            columns: ["store_id"]
+            isOneToOne: false
+            referencedRelation: "stores"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      store_storefront: {
+        Row: {
+          blocks: Json
+          settings: Json
+          store_id: string
+          updated_at: string
+        }
+        Insert: {
+          blocks?: Json
+          settings?: Json
+          store_id: string
+          updated_at?: string
+        }
+        Update: {
+          blocks?: Json
+          settings?: Json
+          store_id?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "store_storefront_store_id_fkey"
+            columns: ["store_id"]
+            isOneToOne: true
+            referencedRelation: "stores"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       stores: {
         Row: {
           created_at: string

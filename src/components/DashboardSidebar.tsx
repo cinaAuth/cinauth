@@ -34,13 +34,16 @@ import {
   LogOut,
 } from "lucide-react";
 import { HeaderControls } from "@/components/HeaderControls";
+import { useI18n, type TranslationKey } from "@/lib/i18n";
+import { panelLabel } from "@/lib/i18n-panel";
 
 type Item = { title: string; url: string };
-type Group = { title: string; icon: typeof Home; items: Item[] };
+type Group = { title: string; titleKey: TranslationKey; icon: typeof Home; items: Item[] };
 
 const groups: Group[] = [
   {
     title: "Catalog",
+    titleKey: "side.catalog",
     icon: Layers,
     items: [
       { title: "Products", url: "/products" },
@@ -52,6 +55,7 @@ const groups: Group[] = [
   },
   {
     title: "Sales",
+    titleKey: "side.sales",
     icon: ShoppingBag,
     items: [
       { title: "Invoices", url: "/sales" },
@@ -61,6 +65,7 @@ const groups: Group[] = [
   },
   {
     title: "Audience",
+    titleKey: "side.audience",
     icon: Users,
     items: [
       { title: "Customers", url: "/panel/audience/customers" },
@@ -72,6 +77,7 @@ const groups: Group[] = [
   },
   {
     title: "Marketing",
+    titleKey: "side.marketing",
     icon: Megaphone,
     items: [
       { title: "Coupons", url: "/panel/marketing/coupons" },
@@ -83,11 +89,13 @@ const groups: Group[] = [
   },
   {
     title: "Wallets",
+    titleKey: "side.wallets",
     icon: Wallet,
     items: [{ title: "Crypto", url: "/panel/wallets/crypto" }],
   },
   {
     title: "Storefront",
+    titleKey: "side.storefront",
     icon: Store,
     items: [
       { title: "Configure", url: "/panel/storefront/configure" },
@@ -105,6 +113,7 @@ const groups: Group[] = [
   },
   {
     title: "Settings",
+    titleKey: "side.settings",
     icon: Settings,
     items: [
       { title: "Payment Methods", url: "/panel/settings/payment-methods" },
@@ -115,6 +124,7 @@ const groups: Group[] = [
   },
   {
     title: "Anti-Fraud",
+    titleKey: "side.antifraud",
     icon: Shield,
     items: [
       { title: "Blacklist", url: "/panel/anti-fraud/blacklist" },
@@ -124,6 +134,7 @@ const groups: Group[] = [
   },
   {
     title: "Developers",
+    titleKey: "side.developers",
     icon: Terminal,
     items: [
       { title: "API Keys", url: "/panel/developers/api-keys" },
@@ -133,6 +144,7 @@ const groups: Group[] = [
   },
   {
     title: "Account",
+    titleKey: "side.account",
     icon: User,
     items: [
       { title: "Profile", url: "/panel/account/profile" },
@@ -154,15 +166,18 @@ export function DashboardSidebar({
   user?: { email: string; name?: string | null } | null;
   onSignOut?: () => void;
 }) {
+  const { t, lang } = useI18n();
   const pathname = useRouterState({ select: (r) => r.location.pathname });
   return (
     <Sidebar collapsible="offcanvas">
       <SidebarHeader className="px-3 py-3">
-        <div className="flex items-center justify-between gap-1">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <Link to="/" className="flex min-w-0 items-center gap-2">
-            <Logo />
+            <Logo iconClassName="h-6 w-6" wordClassName="text-base text-sidebar-foreground" />
           </Link>
-          <HeaderControls />
+          <div className="shrink-0 [&_button]:h-7 [&_button]:w-7">
+            <HeaderControls />
+          </div>
         </div>
       </SidebarHeader>
 
@@ -193,7 +208,7 @@ export function DashboardSidebar({
                   ) : (
                     <Link to="/onboarding" className="flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
                       <Store className="h-4 w-4" />
-                      Create your store
+                      {t("side.createStore")}
                     </Link>
                   )}
                 </div>
@@ -207,7 +222,7 @@ export function DashboardSidebar({
                 <SidebarMenuButton asChild isActive={pathname === "/dashboard"}>
                   <Link to="/dashboard">
                     <Home className="h-4 w-4" />
-                    <span>Dashboard</span>
+                    <span>{t("side.dashboard")}</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -220,7 +235,7 @@ export function DashboardSidebar({
                       <CollapsibleTrigger asChild>
                         <SidebarMenuButton>
                           <group.icon className="h-4 w-4" />
-                          <span>{group.title}</span>
+                          <span>{t(group.titleKey)}</span>
                           <ChevronDown className="ml-auto h-4 w-4 transition-transform group-data-[state=open]/collapsible:rotate-180" />
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
@@ -229,7 +244,9 @@ export function DashboardSidebar({
                           {group.items.map((item) => (
                             <SidebarMenuSubItem key={item.url}>
                               <SidebarMenuSubButton asChild isActive={pathname === item.url}>
-                                <Link to={item.url}>{item.title}</Link>
+                                <Link to={item.url}>
+                                  {panelLabel(lang, item.url.split("/").filter(Boolean).pop() ?? "", item.title)}
+                                </Link>
                               </SidebarMenuSubButton>
                             </SidebarMenuSubItem>
                           ))}
@@ -245,7 +262,7 @@ export function DashboardSidebar({
                   <SidebarMenuButton asChild isActive={pathname === "/admin"}>
                     <Link to="/admin">
                       <ShieldCheck className="h-4 w-4" />
-                      <span>Staff console</span>
+                      <span>{t("side.staff")}</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -261,7 +278,7 @@ export function DashboardSidebar({
             <User className="h-4 w-4" />
           </span>
           <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-medium text-sidebar-foreground">{user?.name ?? "Profile"}</p>
+            <p className="truncate text-sm font-medium text-sidebar-foreground">{user?.name ?? t("side.profile")}</p>
             <p className="truncate text-xs text-muted-foreground">{user?.email ?? "—"}</p>
           </div>
           <Button
@@ -269,7 +286,7 @@ export function DashboardSidebar({
             size="icon"
             className="h-8 w-8 shrink-0 text-muted-foreground hover:text-sidebar-foreground"
             onClick={onSignOut}
-            aria-label="Sign out"
+            aria-label={t("side.signout")}
           >
             <LogOut className="h-4 w-4" />
           </Button>

@@ -22,23 +22,38 @@ export function ScrollReveal({
     const el = ref.current;
     if (!el) return;
 
+    const show = () => {
+      el.style.transitionDelay = `${delay}ms`;
+      el.classList.add("reveal-visible");
+    };
+
+    if (typeof IntersectionObserver === "undefined") {
+      show();
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry) return;
         if (entry.isIntersecting) {
-          el.style.transitionDelay = `${delay}ms`;
-          el.classList.add("reveal-visible");
+          show();
           if (once) observer.unobserve(el);
         } else if (!once) {
           el.classList.remove("reveal-visible");
         }
       },
-      { threshold, rootMargin: "0px 0px -50px 0px" }
+      { threshold: Math.min(threshold, 0.01), rootMargin: "0px 0px -40px 0px" }
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+    // Safety net: never leave content hidden.
+    const fallback = window.setTimeout(show, 1200);
+    return () => {
+      window.clearTimeout(fallback);
+      observer.disconnect();
+    };
   }, [delay, once, threshold]);
+
 
   return (
     <div ref={ref} className={cn("reveal", className)}>

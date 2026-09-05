@@ -13,6 +13,7 @@ import { initTheme } from "@/lib/theme";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { supabase } from "@/integrations/supabase/client";
+import { I18nProvider } from "@/lib/i18n";
 import { CartProvider } from "@/lib/cart";
 import { Toaster } from "@/components/ui/sonner";
 import { ScrollToTop } from "@/components/ScrollToTop";
@@ -153,12 +154,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <I18nProvider>
       <CartProvider>
         <Outlet />
         <Toaster />
         <ScrollToTop />
         <SeasonalEffects />
       </CartProvider>
+      </I18nProvider>
     </QueryClientProvider>
   );
 }

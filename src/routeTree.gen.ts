@@ -16,22 +16,32 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as CheckoutRouteImport } from './routes/checkout'
+import { Route as LoadingRouteImport } from './routes/loading'
 import { Route as MfaRouteImport } from './routes/mfa'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as OrdersRouteImport } from './routes/orders'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as StoreSlugIndexRouteImport } from './routes/$storeSlug.index'
 import { Route as StoreSlugProductSlugRouteImport } from './routes/$storeSlug.$productSlug'
+import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedProductsRouteImport } from './routes/_authenticated/products'
 import { Route as AuthenticatedPurchasesRouteImport } from './routes/_authenticated/purchases'
 import { Route as AuthenticatedSalesRouteImport } from './routes/_authenticated/sales'
+import { Route as InvoiceOrderNumberRouteImport } from './routes/invoice.$orderNumber'
 import { Route as OrdersIndexRouteImport } from './routes/orders.index'
 import { Route as OrdersOrderNumberRouteImport } from './routes/orders.$orderNumber'
 import { Route as AuthenticatedPanelSplatRouteImport } from './routes/_authenticated/panel.$'
 import { Route as AuthenticatedPanelSalesSubscriptionsRouteImport } from './routes/_authenticated/panel.sales.subscriptions'
+import { Route as AuthenticatedPanelSettingsPaymentMethodsRouteImport } from './routes/_authenticated/panel.settings.payment-methods'
+import { Route as AuthenticatedPanelStorefrontCheckoutRouteImport } from './routes/_authenticated/panel.storefront.checkout'
+import { Route as AuthenticatedPanelStorefrontSubscriptionPlanRouteImport } from './routes/_authenticated/panel.storefront.subscription-plan'
+import { Route as AuthenticatedPanelStorefrontVisualEditorRouteImport } from './routes/_authenticated/panel.storefront.visual-editor'
 import { Route as ApiPublicPaymentsWebhookRouteImport } from './routes/api/public/payments/webhook'
+import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
+import { Route as LovableEmailAuthWebhookRouteImport } from './routes/lovable/email/auth/webhook'
+import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -67,6 +77,11 @@ const CheckoutRoute = CheckoutRouteImport.update({
   path: '/checkout',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoadingRoute = LoadingRouteImport.update({
+  id: '/loading',
+  path: '/loading',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MfaRoute = MfaRouteImport.update({
   id: '/mfa',
   path: '/mfa',
@@ -97,6 +112,11 @@ const StoreSlugProductSlugRoute = StoreSlugProductSlugRouteImport.update({
   path: '/$productSlug',
   getParentRoute: () => StoreSlugRoute,
 } as any)
+const AuthenticatedAccountRoute = AuthenticatedAccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -122,6 +142,11 @@ const AuthenticatedSalesRoute = AuthenticatedSalesRouteImport.update({
   path: '/sales',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const InvoiceOrderNumberRoute = InvoiceOrderNumberRouteImport.update({
+  id: '/invoice/$orderNumber',
+  path: '/invoice/$orderNumber',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const OrdersIndexRoute = OrdersIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -143,10 +168,50 @@ const AuthenticatedPanelSalesSubscriptionsRoute =
     path: '/panel/sales/subscriptions',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedPanelSettingsPaymentMethodsRoute =
+  AuthenticatedPanelSettingsPaymentMethodsRouteImport.update({
+    id: '/panel/settings/payment-methods',
+    path: '/panel/settings/payment-methods',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedPanelStorefrontCheckoutRoute =
+  AuthenticatedPanelStorefrontCheckoutRouteImport.update({
+    id: '/panel/storefront/checkout',
+    path: '/panel/storefront/checkout',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedPanelStorefrontSubscriptionPlanRoute =
+  AuthenticatedPanelStorefrontSubscriptionPlanRouteImport.update({
+    id: '/panel/storefront/subscription-plan',
+    path: '/panel/storefront/subscription-plan',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedPanelStorefrontVisualEditorRoute =
+  AuthenticatedPanelStorefrontVisualEditorRouteImport.update({
+    id: '/panel/storefront/visual-editor',
+    path: '/panel/storefront/visual-editor',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const ApiPublicPaymentsWebhookRoute =
   ApiPublicPaymentsWebhookRouteImport.update({
     id: '/api/public/payments/webhook',
     path: '/api/public/payments/webhook',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LovableEmailAuthPreviewRoute = LovableEmailAuthPreviewRouteImport.update({
+  id: '/lovable/email/auth/preview',
+  path: '/lovable/email/auth/preview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LovableEmailAuthWebhookRoute = LovableEmailAuthWebhookRouteImport.update({
+  id: '/lovable/email/auth/webhook',
+  path: '/lovable/email/auth/webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LovableEmailTransactionalPreviewRoute =
+  LovableEmailTransactionalPreviewRouteImport.update({
+    id: '/lovable/email/transactional/preview',
+    path: '/lovable/email/transactional/preview',
     getParentRoute: () => rootRouteImport,
   } as any)
 
@@ -157,22 +222,32 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/changelog': typeof ChangelogRoute
   '/checkout': typeof CheckoutRoute
+  '/loading': typeof LoadingRoute
   '/mfa': typeof MfaRoute
   '/onboarding': typeof OnboardingRoute
   '/orders': typeof OrdersRouteWithChildren
   '/reset-password': typeof ResetPasswordRoute
   '/$storeSlug/$productSlug': typeof StoreSlugProductSlugRoute
+  '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/products': typeof AuthenticatedProductsRoute
   '/purchases': typeof AuthenticatedPurchasesRoute
   '/sales': typeof AuthenticatedSalesRoute
+  '/invoice/$orderNumber': typeof InvoiceOrderNumberRoute
   '/orders/$orderNumber': typeof OrdersOrderNumberRoute
   '/$storeSlug/': typeof StoreSlugIndexRoute
   '/orders/': typeof OrdersIndexRoute
   '/panel/$': typeof AuthenticatedPanelSplatRoute
   '/panel/sales/subscriptions': typeof AuthenticatedPanelSalesSubscriptionsRoute
+  '/panel/settings/payment-methods': typeof AuthenticatedPanelSettingsPaymentMethodsRoute
+  '/panel/storefront/checkout': typeof AuthenticatedPanelStorefrontCheckoutRoute
+  '/panel/storefront/subscription-plan': typeof AuthenticatedPanelStorefrontSubscriptionPlanRoute
+  '/panel/storefront/visual-editor': typeof AuthenticatedPanelStorefrontVisualEditorRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
+  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
+  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -180,21 +255,31 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/changelog': typeof ChangelogRoute
   '/checkout': typeof CheckoutRoute
+  '/loading': typeof LoadingRoute
   '/mfa': typeof MfaRoute
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/$storeSlug/$productSlug': typeof StoreSlugProductSlugRoute
+  '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/products': typeof AuthenticatedProductsRoute
   '/purchases': typeof AuthenticatedPurchasesRoute
   '/sales': typeof AuthenticatedSalesRoute
+  '/invoice/$orderNumber': typeof InvoiceOrderNumberRoute
   '/orders/$orderNumber': typeof OrdersOrderNumberRoute
   '/$storeSlug': typeof StoreSlugIndexRoute
   '/orders': typeof OrdersIndexRoute
   '/panel/$': typeof AuthenticatedPanelSplatRoute
   '/panel/sales/subscriptions': typeof AuthenticatedPanelSalesSubscriptionsRoute
+  '/panel/settings/payment-methods': typeof AuthenticatedPanelSettingsPaymentMethodsRoute
+  '/panel/storefront/checkout': typeof AuthenticatedPanelStorefrontCheckoutRoute
+  '/panel/storefront/subscription-plan': typeof AuthenticatedPanelStorefrontSubscriptionPlanRoute
+  '/panel/storefront/visual-editor': typeof AuthenticatedPanelStorefrontVisualEditorRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
+  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
+  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -205,22 +290,32 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/changelog': typeof ChangelogRoute
   '/checkout': typeof CheckoutRoute
+  '/loading': typeof LoadingRoute
   '/mfa': typeof MfaRoute
   '/onboarding': typeof OnboardingRoute
   '/orders': typeof OrdersRouteWithChildren
   '/reset-password': typeof ResetPasswordRoute
   '/$storeSlug/$productSlug': typeof StoreSlugProductSlugRoute
+  '/_authenticated/account': typeof AuthenticatedAccountRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/products': typeof AuthenticatedProductsRoute
   '/_authenticated/purchases': typeof AuthenticatedPurchasesRoute
   '/_authenticated/sales': typeof AuthenticatedSalesRoute
+  '/invoice/$orderNumber': typeof InvoiceOrderNumberRoute
   '/orders/$orderNumber': typeof OrdersOrderNumberRoute
   '/$storeSlug/': typeof StoreSlugIndexRoute
   '/orders/': typeof OrdersIndexRoute
   '/_authenticated/panel/$': typeof AuthenticatedPanelSplatRoute
   '/_authenticated/panel/sales/subscriptions': typeof AuthenticatedPanelSalesSubscriptionsRoute
+  '/_authenticated/panel/settings/payment-methods': typeof AuthenticatedPanelSettingsPaymentMethodsRoute
+  '/_authenticated/panel/storefront/checkout': typeof AuthenticatedPanelStorefrontCheckoutRoute
+  '/_authenticated/panel/storefront/subscription-plan': typeof AuthenticatedPanelStorefrontSubscriptionPlanRoute
+  '/_authenticated/panel/storefront/visual-editor': typeof AuthenticatedPanelStorefrontVisualEditorRoute
   '/api/public/payments/webhook': typeof ApiPublicPaymentsWebhookRoute
+  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
+  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
+  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -231,22 +326,32 @@ export interface FileRouteTypes {
     | '/cart'
     | '/changelog'
     | '/checkout'
+    | '/loading'
     | '/mfa'
     | '/onboarding'
     | '/orders'
     | '/reset-password'
     | '/$storeSlug/$productSlug'
+    | '/account'
     | '/admin'
     | '/dashboard'
     | '/products'
     | '/purchases'
     | '/sales'
+    | '/invoice/$orderNumber'
     | '/orders/$orderNumber'
     | '/$storeSlug/'
     | '/orders/'
     | '/panel/$'
     | '/panel/sales/subscriptions'
+    | '/panel/settings/payment-methods'
+    | '/panel/storefront/checkout'
+    | '/panel/storefront/subscription-plan'
+    | '/panel/storefront/visual-editor'
     | '/api/public/payments/webhook'
+    | '/lovable/email/auth/preview'
+    | '/lovable/email/auth/webhook'
+    | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -254,21 +359,31 @@ export interface FileRouteTypes {
     | '/cart'
     | '/changelog'
     | '/checkout'
+    | '/loading'
     | '/mfa'
     | '/onboarding'
     | '/reset-password'
     | '/$storeSlug/$productSlug'
+    | '/account'
     | '/admin'
     | '/dashboard'
     | '/products'
     | '/purchases'
     | '/sales'
+    | '/invoice/$orderNumber'
     | '/orders/$orderNumber'
     | '/$storeSlug'
     | '/orders'
     | '/panel/$'
     | '/panel/sales/subscriptions'
+    | '/panel/settings/payment-methods'
+    | '/panel/storefront/checkout'
+    | '/panel/storefront/subscription-plan'
+    | '/panel/storefront/visual-editor'
     | '/api/public/payments/webhook'
+    | '/lovable/email/auth/preview'
+    | '/lovable/email/auth/webhook'
+    | '/lovable/email/transactional/preview'
   id:
     | '__root__'
     | '/'
@@ -278,22 +393,32 @@ export interface FileRouteTypes {
     | '/cart'
     | '/changelog'
     | '/checkout'
+    | '/loading'
     | '/mfa'
     | '/onboarding'
     | '/orders'
     | '/reset-password'
     | '/$storeSlug/$productSlug'
+    | '/_authenticated/account'
     | '/_authenticated/admin'
     | '/_authenticated/dashboard'
     | '/_authenticated/products'
     | '/_authenticated/purchases'
     | '/_authenticated/sales'
+    | '/invoice/$orderNumber'
     | '/orders/$orderNumber'
     | '/$storeSlug/'
     | '/orders/'
     | '/_authenticated/panel/$'
     | '/_authenticated/panel/sales/subscriptions'
+    | '/_authenticated/panel/settings/payment-methods'
+    | '/_authenticated/panel/storefront/checkout'
+    | '/_authenticated/panel/storefront/subscription-plan'
+    | '/_authenticated/panel/storefront/visual-editor'
     | '/api/public/payments/webhook'
+    | '/lovable/email/auth/preview'
+    | '/lovable/email/auth/webhook'
+    | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -304,11 +429,16 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   ChangelogRoute: typeof ChangelogRoute
   CheckoutRoute: typeof CheckoutRoute
+  LoadingRoute: typeof LoadingRoute
   MfaRoute: typeof MfaRoute
   OnboardingRoute: typeof OnboardingRoute
   OrdersRoute: typeof OrdersRouteWithChildren
   ResetPasswordRoute: typeof ResetPasswordRoute
+  InvoiceOrderNumberRoute: typeof InvoiceOrderNumberRoute
   ApiPublicPaymentsWebhookRoute: typeof ApiPublicPaymentsWebhookRoute
+  LovableEmailAuthPreviewRoute: typeof LovableEmailAuthPreviewRoute
+  LovableEmailAuthWebhookRoute: typeof LovableEmailAuthWebhookRoute
+  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -362,6 +492,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CheckoutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/loading': {
+      id: '/loading'
+      path: '/loading'
+      fullPath: '/loading'
+      preLoaderRoute: typeof LoadingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mfa': {
       id: '/mfa'
       path: '/mfa'
@@ -404,6 +541,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StoreSlugProductSlugRouteImport
       parentRoute: typeof StoreSlugRoute
     }
+    '/_authenticated/account': {
+      id: '/_authenticated/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AuthenticatedAccountRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/admin': {
       id: '/_authenticated/admin'
       path: '/admin'
@@ -439,6 +583,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedSalesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/invoice/$orderNumber': {
+      id: '/invoice/$orderNumber'
+      path: '/invoice/$orderNumber'
+      fullPath: '/invoice/$orderNumber'
+      preLoaderRoute: typeof InvoiceOrderNumberRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/orders/': {
       id: '/orders/'
       path: '/'
@@ -467,6 +618,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedPanelSalesSubscriptionsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/panel/settings/payment-methods': {
+      id: '/_authenticated/panel/settings/payment-methods'
+      path: '/panel/settings/payment-methods'
+      fullPath: '/panel/settings/payment-methods'
+      preLoaderRoute: typeof AuthenticatedPanelSettingsPaymentMethodsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/panel/storefront/checkout': {
+      id: '/_authenticated/panel/storefront/checkout'
+      path: '/panel/storefront/checkout'
+      fullPath: '/panel/storefront/checkout'
+      preLoaderRoute: typeof AuthenticatedPanelStorefrontCheckoutRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/panel/storefront/subscription-plan': {
+      id: '/_authenticated/panel/storefront/subscription-plan'
+      path: '/panel/storefront/subscription-plan'
+      fullPath: '/panel/storefront/subscription-plan'
+      preLoaderRoute: typeof AuthenticatedPanelStorefrontSubscriptionPlanRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/panel/storefront/visual-editor': {
+      id: '/_authenticated/panel/storefront/visual-editor'
+      path: '/panel/storefront/visual-editor'
+      fullPath: '/panel/storefront/visual-editor'
+      preLoaderRoute: typeof AuthenticatedPanelStorefrontVisualEditorRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/api/public/payments/webhook': {
       id: '/api/public/payments/webhook'
       path: '/api/public/payments/webhook'
@@ -474,10 +653,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicPaymentsWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lovable/email/auth/preview': {
+      id: '/lovable/email/auth/preview'
+      path: '/lovable/email/auth/preview'
+      fullPath: '/lovable/email/auth/preview'
+      preLoaderRoute: typeof LovableEmailAuthPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/auth/webhook': {
+      id: '/lovable/email/auth/webhook'
+      path: '/lovable/email/auth/webhook'
+      fullPath: '/lovable/email/auth/webhook'
+      preLoaderRoute: typeof LovableEmailAuthWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lovable/email/transactional/preview': {
+      id: '/lovable/email/transactional/preview'
+      path: '/lovable/email/transactional/preview'
+      fullPath: '/lovable/email/transactional/preview'
+      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAccountRoute: typeof AuthenticatedAccountRoute
   AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedProductsRoute: typeof AuthenticatedProductsRoute
@@ -485,9 +686,14 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedSalesRoute: typeof AuthenticatedSalesRoute
   AuthenticatedPanelSplatRoute: typeof AuthenticatedPanelSplatRoute
   AuthenticatedPanelSalesSubscriptionsRoute: typeof AuthenticatedPanelSalesSubscriptionsRoute
+  AuthenticatedPanelSettingsPaymentMethodsRoute: typeof AuthenticatedPanelSettingsPaymentMethodsRoute
+  AuthenticatedPanelStorefrontCheckoutRoute: typeof AuthenticatedPanelStorefrontCheckoutRoute
+  AuthenticatedPanelStorefrontSubscriptionPlanRoute: typeof AuthenticatedPanelStorefrontSubscriptionPlanRoute
+  AuthenticatedPanelStorefrontVisualEditorRoute: typeof AuthenticatedPanelStorefrontVisualEditorRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAccountRoute: AuthenticatedAccountRoute,
   AuthenticatedAdminRoute: AuthenticatedAdminRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedProductsRoute: AuthenticatedProductsRoute,
@@ -496,6 +702,14 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedPanelSplatRoute: AuthenticatedPanelSplatRoute,
   AuthenticatedPanelSalesSubscriptionsRoute:
     AuthenticatedPanelSalesSubscriptionsRoute,
+  AuthenticatedPanelSettingsPaymentMethodsRoute:
+    AuthenticatedPanelSettingsPaymentMethodsRoute,
+  AuthenticatedPanelStorefrontCheckoutRoute:
+    AuthenticatedPanelStorefrontCheckoutRoute,
+  AuthenticatedPanelStorefrontSubscriptionPlanRoute:
+    AuthenticatedPanelStorefrontSubscriptionPlanRoute,
+  AuthenticatedPanelStorefrontVisualEditorRoute:
+    AuthenticatedPanelStorefrontVisualEditorRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
@@ -536,11 +750,16 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   ChangelogRoute: ChangelogRoute,
   CheckoutRoute: CheckoutRoute,
+  LoadingRoute: LoadingRoute,
   MfaRoute: MfaRoute,
   OnboardingRoute: OnboardingRoute,
   OrdersRoute: OrdersRouteWithChildren,
   ResetPasswordRoute: ResetPasswordRoute,
+  InvoiceOrderNumberRoute: InvoiceOrderNumberRoute,
   ApiPublicPaymentsWebhookRoute: ApiPublicPaymentsWebhookRoute,
+  LovableEmailAuthPreviewRoute: LovableEmailAuthPreviewRoute,
+  LovableEmailAuthWebhookRoute: LovableEmailAuthWebhookRoute,
+  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

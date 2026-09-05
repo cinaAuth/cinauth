@@ -16,11 +16,11 @@ export function Logo({
     <span className={cn("flex items-center gap-2", className)}>
       <span
         className={cn(
-          "flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary",
+          "flex h-8 w-8 shrink-0 items-center justify-center text-primary",
           iconClassName,
         )}
       >
-        <Zap className="h-5 w-5 fill-primary-foreground text-primary-foreground" />
+        <Zap className="h-6 w-6 fill-current" />
       </span>
       <span className={cn("font-display text-lg font-black tracking-tight text-foreground", wordClassName)}>
         cina<span className="text-primary">Auth</span>

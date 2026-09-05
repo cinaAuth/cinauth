@@ -11,6 +11,10 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useTrackStoreView } from "@/lib/analytics";
 import { useEffect, useState } from "react";
+import { getPublicStorefront } from "@/lib/storefront.functions";
+import { BlockRenderer } from "@/components/StorefrontBlocks";
+import { DEFAULT_SETTINGS, type StorefrontBlock } from "@/lib/storefront";
+
 
 export const Route = createFileRoute("/$storeSlug/")({
   head: () => ({
@@ -69,7 +73,14 @@ function StorePage() {
   });
   const wished = new Set(wishlist?.productIds ?? []);
 
+  const layoutFn = useServerFn(getPublicStorefront);
+  const { data: layout } = useQuery({
+    queryKey: ["public-storefront", storeSlug],
+    queryFn: () => layoutFn({ data: { storeSlug } }),
+  });
+
   useTrackStoreView(data?.store?.id, `/${storeSlug}`);
+
 
   async function onToggleWish(productId: string) {
     if (!loggedIn) {
@@ -107,18 +118,41 @@ function StorePage() {
   }
 
   const { store, products, categories } = data;
+  const settings = layout?.settings ?? DEFAULT_SETTINGS;
+  const blocks = (layout?.blocks ?? []) as StorefrontBlock[];
+  const productsIndex = blocks.findIndex((b) => b.type === "products");
+  const beforeBlocks = productsIndex === -1 ? blocks : blocks.slice(0, productsIndex);
+  const afterBlocks = productsIndex === -1 ? [] : blocks.slice(productsIndex + 1);
+  const productsBlock = productsIndex === -1 ? null : blocks[productsIndex];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <StoreHeader store={store} />
 
-      <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{store.name}</h1>
-          {store.description && <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">{store.description}</p>}
-        </div>
+      {beforeBlocks
+        .filter((b) => b.type === "announcement")
+        .map((b) => (
+          <BlockRenderer key={b.id} block={b} settings={settings} />
+        ))}
+
+      <main className={`mx-auto px-4 py-12 sm:px-6 lg:px-8 ${settings.width === "narrow" ? "max-w-3xl" : "max-w-6xl"}`}>
+        {beforeBlocks.filter((b) => b.type !== "announcement").length > 0 ? (
+          beforeBlocks
+            .filter((b) => b.type !== "announcement")
+            .map((b) => <BlockRenderer key={b.id} block={b} settings={settings} />)
+        ) : (
+          <div className="text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">{store.name}</h1>
+            {store.description && <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">{store.description}</p>}
+          </div>
+        )}
+
+        {productsBlock?.data?.title && productsBlock.visible !== false && (
+          <h2 className="mt-10 text-2xl font-bold text-foreground">{productsBlock.data.title}</h2>
+        )}
 
         {/* Search */}
+        {settings.showSearch && (
         <div className="mx-auto mt-10 max-w-xl">
           <div className="relative">
             <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -130,9 +164,11 @@ function StorePage() {
             />
           </div>
         </div>
+        )}
 
         {/* Categories */}
-        {categories.length > 0 && (
+        {settings.showCategories && categories.length > 0 && (
+
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
             <button
               onClick={() => setCategory(null)}
@@ -242,7 +278,11 @@ function StorePage() {
             ))}
           </div>
         )}
+        {afterBlocks.map((b) => (
+          <BlockRenderer key={b.id} block={b} settings={settings} />
+        ))}
       </main>
+
     </div>
   );
 }

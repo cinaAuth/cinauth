@@ -267,3 +267,43 @@ export const getMyWishlist = createServerFn({ method: "GET" })
     if (error) throw new Error(error.message);
     return { productIds: (data ?? []).map((w) => w.product_id as string) };
   });
+
+/** Wishlist with product + store details for the customer dashboard. */
+export const getMyWishlistProducts = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const { data, error } = await context.supabase
+      .from("wishlists")
+      .select("product_id, created_at")
+      .eq("user_id", context.userId)
+      .order("created_at", { ascending: false });
+    if (error) throw new Error(error.message);
+
+    const ids = (data ?? []).map((w) => w.product_id as string);
+    if (ids.length === 0) return { items: [] };
+
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data: products } = await supabaseAdmin
+      .from("products")
+      .select("id, name, slug, price, currency, product_type, billing_interval, is_active, stores(name, slug)")
+      .in("id", ids);
+
+    const byId = new Map((products ?? []).map((p: any) => [p.id as string, p]));
+    return {
+      items: ids
+        .map((id) => byId.get(id))
+        .filter(Boolean)
+        .map((p: any) => ({
+          id: p.id as string,
+          name: p.name as string,
+          slug: p.slug as string,
+          price: Number(p.price),
+          currency: p.currency as string,
+          productType: p.product_type as string,
+          billingInterval: (p.billing_interval ?? null) as string | null,
+          isActive: Boolean(p.is_active),
+          storeName: p.stores?.name ?? "Store",
+          storeSlug: p.stores?.slug ?? "",
+        })),
+    };
+  });

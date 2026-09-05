@@ -107,7 +107,28 @@ export const createCartCheckout = createServerFn({ method: "POST" })
         storeSlug: store.slug as string,
         ...(data.buyerUserId && { userId: data.buyerUserId }),
       };
-      const session = await stripe.checkout.sessions.create({
+      // Card (incl. Apple Pay / Google Pay) plus wallets and local methods
+      // supported by the account. Stripe rejects methods that aren't active,
+      // so we retry with a smaller list and finally with automatic selection.
+      const extraMethods: string[] = ["card", "link", "paypal"];
+      if (!isSubscription) extraMethods.push("amazon_pay");
+      if (currency === "eur") {
+        extraMethods.push("klarna", "sepa_debit");
+        if (!isSubscription) {
+          extraMethods.push("bizum", "ideal", "bancontact", "p24", "eps", "multibanco", "alipay", "wechat_pay");
+        }
+      }
+      if (currency === "usd" && !isSubscription) {
+        extraMethods.push("alipay");
+      }
+      if (currency === "gbp" && !isSubscription) {
+        extraMethods.push("klarna");
+      }
+
+
+
+
+      const baseParams = {
         mode: isSubscription ? "subscription" : "payment",
         ui_mode: "embedded_page",
         return_url: `${data.returnUrl.replace(/\/$/, "")}/orders/${orderNumber}`,
@@ -132,8 +153,26 @@ export const createCartCheckout = createServerFn({ method: "POST" })
                 description: `${store.name} — order ${orderNumber}`,
               },
             }),
+        ...(extraMethods.includes("wechat_pay") && {
+          payment_method_options: { wechat_pay: { client: "web" } },
+        }),
         metadata,
-      });
+      } as any;
+
+      let session;
+      const attempts = [extraMethods, ["card", "link", "paypal"], null];
+      let lastError: unknown;
+      for (const methods of attempts) {
+        try {
+          session = await stripe.checkout.sessions.create(
+            methods ? { ...baseParams, payment_method_types: methods } : baseParams,
+          );
+          break;
+        } catch (err) {
+          lastError = err;
+        }
+      }
+      if (!session) throw lastError;
 
       await supabaseAdmin
         .from("orders")
@@ -449,13 +488,27 @@ export const getStoreSubscriptions = createServerFn({ method: "GET" })
 
     const { data: subs, error } = await (context.supabase as any)
       .from("subscriptions")
-      .select("id, buyer_email, user_id, product_id, price_id, status, current_period_start, current_period_end, cancel_at_period_end, environment, created_at, products(name)")
+      .select("id, buyer_email, user_id, product_id, price_id, status, current_period_start, current_period_end, cancel_at_period_end, environment, created_at")
       .eq("store_id", data.storeId)
       .eq("environment", data.environment ?? "sandbox")
       .order("created_at", { ascending: false })
       .limit(200);
 
     if (error) throw new Error(error.message);
+
+    const productIds = Array.from(
+      new Set((subs ?? []).map((s: any) => s.product_id).filter(Boolean)),
+    ).filter((id) =>
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(String(id)),
+    ) as string[];
+    const nameById = new Map<string, string>();
+    if (productIds.length) {
+      const { data: prods } = await context.supabase
+        .from("products")
+        .select("id, name")
+        .in("id", productIds);
+      for (const p of prods ?? []) nameById.set(p.id as string, p.name as string);
+    }
 
     return {
       storeName: store.name as string,
@@ -464,7 +517,7 @@ export const getStoreSubscriptions = createServerFn({ method: "GET" })
         buyerEmail: sub.buyer_email as string,
         buyerUserId: sub.user_id as string | null,
         productId: sub.product_id as string,
-        productName: sub.products?.name ?? "Product",
+        productName: nameById.get(sub.product_id) ?? "Product",
         priceId: sub.price_id as string,
         status: sub.status as string,
         currentPeriodStart: sub.current_period_start as string | null,

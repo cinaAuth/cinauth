@@ -1,6 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Zap, ShoppingCart } from "lucide-react";
 import { useCart } from "@/lib/cart";
+import { useI18n } from "@/lib/i18n";
+import { LanguageSelector } from "@/components/LanguageSelector";
 
 interface StoreHeaderProps {
   store?: { name: string; slug: string; logo_url?: string | null } | null;
@@ -8,6 +10,7 @@ interface StoreHeaderProps {
 
 export function StoreHeader({ store }: StoreHeaderProps) {
   const { count } = useCart();
+  const { t } = useI18n();
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-md">
@@ -39,14 +42,15 @@ export function StoreHeader({ store }: StoreHeaderProps) {
             cinaAuth
           </Link>
         )}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <LanguageSelector />
           <Link to="/orders" className="text-sm text-muted-foreground hover:text-foreground">
-            Track order
+            {t("store.track")}
           </Link>
           <Link
             to="/cart"
             className="relative inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border text-foreground hover:border-primary/40"
-            aria-label="Cart"
+            aria-label={t("store.cart")}
           >
             <ShoppingCart className="h-5 w-5" />
             {count > 0 && (

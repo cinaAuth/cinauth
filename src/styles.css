@@ -9,14 +9,8 @@
   --font-sans: "JetBrains Mono", monospace;
   --font-landing: "Orbitron", sans-serif;
 
-  /* Landing — cyber como el panel: negro + naranja */
-  --color-landing-bg: #0a0a0a;
-  --color-landing-surface: #100d0a;
-  --color-landing-card: #16110c;
-  --color-landing-border: oklch(1 0 0 / 8%);
-  --color-landing-text: #f4f4f5;
-  --color-landing-muted: #a1a1aa;
 }
+
 
 @utility landing-glow {
   background:
@@ -71,10 +65,23 @@
   --color-landing-accent: var(--primary);
   --color-landing-accent-strong: var(--primary);
   --color-landing-accent-foreground: var(--primary-foreground);
+  --color-landing-bg: var(--landing-bg);
+  --color-landing-surface: var(--landing-surface);
+  --color-landing-card: var(--landing-card);
+  --color-landing-border: var(--landing-border);
+  --color-landing-text: var(--landing-text);
+  --color-landing-muted: var(--landing-muted);
+
 }
 
 :root {
   --radius: 0.25rem;
+  --landing-bg: #ffffff;
+  --landing-surface: #f7f7f8;
+  --landing-card: #ffffff;
+  --landing-border: oklch(0 0 0 / 10%);
+  --landing-text: #101014;
+  --landing-muted: #5c5c66;
   --accent-hue: 55;
   --accent-chroma: 0.19;
   --accent-l: 0.72;
@@ -98,7 +105,7 @@
   --input: oklch(0.2 0.02 285 / 18%);
   --ring: oklch(var(--accent-l) var(--accent-chroma) var(--accent-hue));
   --chart-1: oklch(var(--accent-l) var(--accent-chroma) var(--accent-hue));
-  --chart-2: oklch(0.62 0.14 195);
+  --chart-2: oklch(calc(var(--accent-l) - 0.1) calc(var(--accent-chroma) * 0.75) var(--accent-hue));
   --chart-3: oklch(0.6 0.22 350);
   --chart-4: oklch(0.58 0.2 300);
   --chart-5: oklch(0.62 0.15 160);
@@ -113,6 +120,12 @@
 }
 
 .dark {
+  --landing-bg: #0a0a0a;
+  --landing-surface: #100d0a;
+  --landing-card: #16110c;
+  --landing-border: oklch(1 0 0 / 8%);
+  --landing-text: #f4f4f5;
+  --landing-muted: #a1a1aa;
   --background: oklch(0.11 0.012 285);
   --foreground: oklch(0.96 0.005 285);
   --card: oklch(0.14 0.015 285);
@@ -133,7 +146,7 @@
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(var(--accent-l) var(--accent-chroma) var(--accent-hue));
   --chart-1: oklch(var(--accent-l) var(--accent-chroma) var(--accent-hue));
-  --chart-2: oklch(0.78 0.14 195);
+  --chart-2: oklch(calc(var(--accent-l) + 0.06) calc(var(--accent-chroma) * 0.75) var(--accent-hue));
   --chart-3: oklch(0.65 0.26 350);
   --chart-4: oklch(0.62 0.24 300);
   --chart-5: oklch(0.7 0.17 160);
@@ -174,6 +187,11 @@
     linear-gradient(oklch(0.5 0.03 285 / 12%) 1px, transparent 1px),
     linear-gradient(90deg, oklch(0.5 0.03 285 / 12%) 1px, transparent 1px);
   background-size: 50px 50px;
+}
+
+@utility radial-grid {
+  background-image: radial-gradient(oklch(var(--accent-l) var(--accent-chroma) var(--accent-hue) / 12%) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
 @utility glow-border-primary {

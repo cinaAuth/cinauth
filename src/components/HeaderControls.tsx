@@ -4,16 +4,20 @@ import { useServerFn } from "@tanstack/react-start";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Bell, Check, FileText, Moon, Palette, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LanguageSelector } from "@/components/LanguageSelector";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { getNotifications, markNotificationsRead } from "@/lib/checkout.functions";
 import { ACCENTS, applyAccent, applyThemeMode, applySeasonalAccent, readAccent, readAutoSeason, readEffectsEnabled, readThemeMode, setAutoSeason, setEffectsEnabled, type AccentKey, type ThemeMode } from "@/lib/theme";
+
+
 import { getSeasonInfo } from "@/lib/seasons";
 import { cn } from "@/lib/utils";
 
+
 const iconBtn = "h-8 w-8 text-muted-foreground hover:text-sidebar-foreground";
 
-function ThemeToggle() {
+export function ThemeToggle({ className }: { className?: string } = {}) {
   const [mode, setMode] = useState<ThemeMode>("dark");
 
   useEffect(() => {
@@ -24,7 +28,7 @@ function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon"
-      className={iconBtn}
+      className={cn(iconBtn, className)}
       aria-label="Toggle light or dark mode"
       onClick={() => {
         const next: ThemeMode = mode === "dark" ? "light" : "dark";
@@ -37,7 +41,7 @@ function ThemeToggle() {
   );
 }
 
-function AccentPicker() {
+export function AccentPicker({ className }: { className?: string } = {}) {
   const [accent, setAccent] = useState<AccentKey>("orange");
   const [auto, setAuto] = useState(false);
   const [effects, setEffects] = useState(true);
@@ -52,7 +56,7 @@ function AccentPicker() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="ghost" size="icon" className={iconBtn} aria-label="Accent color">
+        <Button variant="ghost" size="icon" className={cn(iconBtn, className)} aria-label="Accent color">
           <Palette className="h-4 w-4" />
         </Button>
       </PopoverTrigger>
@@ -125,7 +129,7 @@ function AccentPicker() {
 
 type Notification = { id: string; title: string; message: string | null; read: boolean; created_at: string };
 
-function Notifications() {
+function Notifications({ className }: { className?: string } = {}) {
   const fetchNotifications = useServerFn(getNotifications);
   const markRead = useServerFn(markNotificationsRead);
   const queryClient = useQueryClient();
@@ -147,7 +151,7 @@ function Notifications() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="ghost" size="icon" className={cn(iconBtn, "relative")} aria-label="Notifications">
+        <Button variant="ghost" size="icon" className={cn(iconBtn, "relative", className)} aria-label="Notifications">
           <Bell className="h-4 w-4" />
           {unread > 0 ? (
             <span className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[9px] font-bold text-primary-foreground">
@@ -198,15 +202,16 @@ function Notifications() {
 
 export function HeaderControls() {
   return (
-    <div className="flex shrink-0 items-center gap-0.5">
-      <ThemeToggle />
-      <Button variant="ghost" size="icon" className={iconBtn} asChild>
+    <div className="flex shrink-0 items-center gap-0 rounded-md border border-border/50 bg-muted/40">
+      <LanguageSelector triggerClassName="rounded-none" />
+
+
+      <Button variant="ghost" size="icon" className={cn(iconBtn, "rounded-none")} asChild>
         <Link to="/changelog" aria-label="Changelog">
           <FileText className="h-4 w-4" />
         </Link>
       </Button>
-      <AccentPicker />
-      <Notifications />
+      <Notifications className="rounded-none" />
     </div>
   );
 }

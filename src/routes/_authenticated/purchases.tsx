@@ -75,9 +75,14 @@ function PurchasesPage() {
             </div>
             cinaAuth
           </Link>
-          <Link to="/dashboard">
-            <Button variant="outline" size="sm">Dashboard</Button>
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link to="/account">
+              <Button variant="outline" size="sm">My account</Button>
+            </Link>
+            <Link to="/dashboard">
+              <Button variant="outline" size="sm">Dashboard</Button>
+            </Link>
+          </div>
         </div>
       </header>
 
